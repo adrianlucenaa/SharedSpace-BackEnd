@@ -11,11 +11,15 @@
       <ion-title size="large">Apartment</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
-    <ion-item>
-      <ion-button size="large" (click)="navigateToApartment()" >Apartment</ion-button>
-    </ion-item>
-  </ion-list>
+
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-card-header>
+      <ion-card-title>Nombre Apartamento</ion-card-title>
+      <ion-card-subtitle>Nombre de usuario</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button size="large" (click)="navigateToApartment()" >Apartment</ion-button>
+  </ion-card>
   @if(apartmentVisible){
     <app-apartment></app-apartment>
   }
