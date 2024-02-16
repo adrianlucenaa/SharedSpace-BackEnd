@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Name:" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Last Name:" placeholder="Enter text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Gmail:" type="email" placeholder="example@gmail.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="DNI:" type="DNI" placeholder="00000000X"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Password:" type="password" placeholder="Password"></ion-input>
+    </ion-item> 
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button expand="block">Registrar</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button expand="block" (click)="redirectToLogin()" >Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-list>
+</ion-list>

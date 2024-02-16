@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Edit Account
+    </ion-title>  
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list class="ion-text-center">
+    <ion-item>
+      <ion-input label="New Password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="New Gmail" type="email" placeholder="email@domain.com"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-justify-content-center">
+      <ion-button size="small" class="ion-margin-end">Save</ion-button>
+      <ion-button size="small" (click)="goBack()" class="ion-margin-start">Back</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
