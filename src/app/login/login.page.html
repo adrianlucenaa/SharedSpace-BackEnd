@@ -1,27 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>
+      Login
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-list>
-    <ion-item>
-      <ion-input label="Gmail" type="email" placeholder="gmail@domain.com"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input label="Password" type="password" placeholder="Password"></ion-input>
-    </ion-item>
-
-  </ion-list>
-  <ion-button shape="round" (click)="redirectToTab1()">sign in</ion-button>
-  <ion-button shape="round" fill="outline" (click)="redirectToRegister()">I don't have account</ion-button>
+<ion-content class="ion-padding">
+  <div class="ion-padding" style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+    <form class="max-w-sm mx-auto">
+      <ion-item lines="none" class="mb-5">
+        <ion-label position="stacked" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</ion-label>
+        <ion-input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required></ion-input>
+      </ion-item>
+      <ion-item lines="none" class="mb-5">
+        <ion-label position="stacked" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</ion-label>
+        <ion-input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></ion-input>
+      </ion-item>
+      
+      <div class="flex justify-between">
+        <ion-button expand="block" color="primary" type="submit" class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</ion-button>
+        <ion-button expand="block" color="primary"  (click)="redirectToRegister()">Register</ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
-
