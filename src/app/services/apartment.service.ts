@@ -19,6 +19,10 @@ export class ApartmentService {
     return this.http.get<apartment[]>(this.apiUrl);
   }
 
+  getApartmentByUser(userId:any){
+    return this.http.get<apartment>(`${this.apiUrl}/user/${userId}`);
+  }
+
   createApartment(apartment: apartment): Observable<apartment> {
     return this.http.post<apartment>(this.apiUrl, apartment);
   }

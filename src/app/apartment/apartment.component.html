@@ -6,41 +6,41 @@
 
 <ion-item class="form-item">
   <ion-label>Name</ion-label>
-  <ion-textarea [(ngModel)]="apartment.name" class="form-textarea"></ion-textarea>
+  <ion-textarea *If="apartment.name" class="form-textarea"></ion-textarea>
 </ion-item>
 
 <ion-item class="form-item">
   <ion-label>OwnerEmail</ion-label>
-  <ion-textarea [(ngModel)]="apartment.ownerEmail" class="form-textarea"></ion-textarea>
+  <ion-textarea *If="apartment.ownerEmail" class="form-textarea"></ion-textarea>
 </ion-item>
 
 <ion-content>
   <ion-item class="form-item">
     <ion-label>NameOwner</ion-label>
-    <ion-input [(ngModel)]="apartment.nameOwner" class="form-input"></ion-input>
+    <ion-input *If="apartment.nameOwner" class="form-input"></ion-input>
   </ion-item>
 
   <ion-item class="form-item">
-    <ion-label>OwnerEmail</ion-label>
-    <ion-textarea [(ngModel)]="apartment.ownerEmail" class="form-textarea"></ion-textarea>
+    <ion-label>Image</ion-label>
+    <ion-textarea *If="apartment.img" class="form-textarea"></ion-textarea>
   </ion-item>
 
   <ion-item class="form-item">
     <ion-label>OwnerNumber</ion-label>
-    <ion-textarea [(ngModel)]="apartment.ownerNumber" class="form-textarea"></ion-textarea>
+    <ion-textarea *If="apartment.ownerNumber" class="form-textarea"></ion-textarea>
   </ion-item>
 
   <ion-item class="form-item">
     <ion-label>Address</ion-label>
-    <ion-textarea [(ngModel)]="apartment.address" class="form-textarea"></ion-textarea>
+    <ion-textarea *If="apartment.address" class="form-textarea"></ion-textarea>
   </ion-item>
 
   
   <ion-item>
-    <ion-checkbox [(ngModel)]="apartment.img" justify="space-between">¿Quieres eliminar la imágen?</ion-checkbox>
+    <ion-checkbox *If="apartment.img" justify="space-between">¿Quieres eliminar la imágen?</ion-checkbox>
   </ion-item>
 
   <ion-button expand="full" (click)="saveChanges()" class="form-button">Save</ion-button>
   
-  <img *If="showImage && note.img" [src]="'data:image/jpeg;base64,' + apartment.img">
+  <img *If="showImage && apartment.img" [src]="'data:image/jpeg;base64,' + apartment.img">
 </ion-content>
