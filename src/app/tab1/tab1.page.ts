@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-import { IonInput, IonItem, IonicModule, ModalController } from '@ionic/angular';
+
+import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from '../register/register.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +15,9 @@ import { RegisterComponent } from '../register/register.component';
 export class Tab1Page {
   showLogin: boolean = false;
 
-  constructor(){}
+  constructor(private router: Router){}
   
-  
+  goToTasks() {
+    this.router.navigate(['tasks']);
+  }
 }

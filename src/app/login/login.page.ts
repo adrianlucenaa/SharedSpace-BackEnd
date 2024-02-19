@@ -16,7 +16,7 @@ export class LoginPage  {
   constructor(private router: Router) {}
 
   redirectToRegister() {
-    this.router.navigate(['/register']); // Redirige a la página de registro
+    this.router.navigate(['register']); // Redirige a la página de registro
   }
 
   redirectToTab1() {
