@@ -9,60 +9,46 @@
 
 <ion-content>
   <div class="content-wrapper">
+    <img src="../../assets/images/loguete.png" alt="Logo" class="logo">
     <form class="ion-padding form-margin">
       <ion-grid class="ion-no-padding">
         <ion-row>
           <ion-col size="12" size-md="6" class="ion-no-padding">
-            <ion-item lines="none">
-              <ion-label position="stacked">First name</ion-label>
-              <ion-input type="text" name="floating_first_name" id="floating_first_name" required></ion-input>
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked" >First name</ion-label>
+              <ion-input *If="user.name" type="text" name="floating_first_name" id="floating_first_name" required></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" size-md="6" class="ion-no-padding">
-            <ion-item lines="none">
+            <ion-item lines="none" class="rounded-item">
               <ion-label position="stacked">Last name</ion-label>
-              <ion-input type="text" name="floating_last_name" id="floating_last_name" required></ion-input>
+              <ion-input *If="user.surname" type="text" name="floating_last_name" id="floating_last_name" required></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col size="12" size-md="6" class="ion-no-padding">
-            <ion-item lines="none">
-              <ion-label position="stacked">DNI (12345678-X)</ion-label>
-              <ion-input type="DNI" pattern="[0-9]{8}-[A-Z]{1}" name="floating_DNI" id="floating_DNI" required></ion-input>
+            <ion-item lines="none" class="rounded-item">
+              <ion-label  position="stacked">DNI (12345678-X)</ion-label>
+              <ion-input *If="user.dni" type="DNI" pattern="[0-9]{8}-[A-Z]{1}" name="floating_DNI" id="floating_DNI" required></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ion-item lines="none">
+      <ion-item lines="none" class="rounded-item">
         <ion-label position="stacked">Email address</ion-label>
-        <ion-input type="email" name="floating_email" id="floating_email" required></ion-input>
+        <ion-input *If="user.gmail" type="email" name="floating_email" id="floating_email" required></ion-input>
       </ion-item>
 
-      <ion-item lines="none">
+      <ion-item lines="none" class="rounded-item">
         <ion-label position="stacked">Password</ion-label>
-        <ion-input type="password" name="floating_password" id="floating_password" required></ion-input>
+        <ion-input *If="user.password" type="password" name="floating_password" id="floating_password" required></ion-input>
       </ion-item>
 
-      <ion-button expand="block" color="primary" type="submit">Submit</ion-button>
-      <ion-button expand="block" color="primary"  (click)="redirectToLogin()">Cancel</ion-button>
+      <ion-button expand="block" color="primary" type="submit" onclick="saveChanges()">Submit</ion-button>
     </form>
   </div>
 </ion-content>
 
-<style>
-  .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 56px); /* Subtracting the height of the header */
-  }
-
-  .form-margin {
-    margin: 0 20px; /* Ajusta el margen horizontal del formulario según sea necesario */
-    max-width: 400px; /* Opcional: establece el ancho máximo del formulario */
-  }
-</style>

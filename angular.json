@@ -130,7 +130,7 @@
       "@ionic/angular-toolkit"
     ],
 
-    "analytics": "ad80ddb2-2f75-4506-94b6-714420414f09"
+    "analytics": "ad80ddb2-2f75-4506-94b6-714420414f09",
     "analytics": "faee40de-0ef0-401e-a74a-fe98ede5ccd5"
   },
   "schematics": {

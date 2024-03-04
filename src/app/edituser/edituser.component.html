@@ -7,20 +7,24 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-list class="ion-text-center">
+<ion-content [fullscreen]="true" class="content-wrapper">
+  <div >
     
-    <ion-item>
-      <ion-input label="New Password" type="password"></ion-input>
-    </ion-item>
+    <div class="form-container">
+      <form class="ion-padding form-margin">
+        <ion-item lines="none" class="input-item">
+          <ion-label position="stacked">Email address</ion-label>
+          <ion-input type="email" name="floating_email" id="floating_email" required></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input label="New Gmail" type="email" placeholder="email@domain.com"></ion-input>
-    </ion-item>
+        <ion-item lines="none" class="input-item">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input type="password" name="floating_password" id="floating_password" required></ion-input>
+        </ion-item>
 
-    <ion-item class="ion-justify-content-center">
-      <ion-button size="small" class="ion-margin-end">Save</ion-button>
-      <ion-button size="small" (click)="goBack()" class="ion-margin-start">Back</ion-button>
-    </ion-item>
-  </ion-list>
+        <ion-button expand="block" color="primary" type="submit" class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="goBack()">Back</ion-button>
+        <ion-button expand="block" color="primary">Save</ion-button>
+      </form>
+    </div>
+  </div>
 </ion-content>

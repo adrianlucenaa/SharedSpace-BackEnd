@@ -6,22 +6,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="ion-padding" style="display: flex; justify-content: center; align-items: center; height: 80vh;">
-    <form class="max-w-sm mx-auto">
-      <ion-item lines="none" class="mb-5">
-        <ion-label position="stacked" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</ion-label>
-        <ion-input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required></ion-input>
-      </ion-item>
-      <ion-item lines="none" class="mb-5">
-        <ion-label position="stacked" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</ion-label>
-        <ion-input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></ion-input>
-      </ion-item>
-      
-      <div class="flex justify-between">
-        <ion-button expand="block" color="primary" type="submit" class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</ion-button>
+<ion-content>
+  <div class="content-wrapper">
+    <img src="../../assets/images/loguete.png" alt="Logo" class="logo">
+    <div class="form-container">
+      <form class="ion-padding form-margin">
+        <ion-item lines="none" class="input-item">
+          <ion-label position="stacked">Email address</ion-label>
+          <ion-input type="email" name="floating_email" id="floating_email" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="input-item">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input type="password" name="floating_password" id="floating_password" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="primary" type="submit" class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="redirectToTab1()">Submit</ion-button>
         <ion-button expand="block" color="primary"  (click)="redirectToRegister()">Register</ion-button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </ion-content>
+

@@ -7,20 +7,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-row>
-    <ion-col>
-      <ion-button size="default" (click)="navigateToEditUser()">Edit User</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-button size="default" (click)="redirectToLogin()">Close Session</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-button size="default" color="danger" (click)="confirmDeleteAccount()">Delete Account</ion-button>
-    </ion-col>
-  </ion-row>
+<ion-content [fullscreen]="true" class="content-background">
+  <div class="ion-padding">
+    <div class="button-divider">
+      <ion-button expand="block" size="default" (click)="navigateToEditUser()" class="centered-text">Edit User</ion-button>
+    </div>
+    <div class="button-divider">
+      <ion-button expand="block" size="default" (click)="redirectToLogin()" class="centered-text">Close Session</ion-button>
+    </div>
+    <div class="button-divider">
+      <ion-button expand="block" size="default" color="danger" (click)="confirmDeleteAccount()" class="centered-text">Delete Account</ion-button>
+    </div>
+  </div>
 </ion-content>
