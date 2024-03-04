@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { EdituserComponent } from '../edituser/edituser.component';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tab3',
@@ -12,8 +13,14 @@ import { Router } from '@angular/router';
   styleUrls: ['tab3.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, ExploreContainerComponent],
+  providers: [UserService]
 })
 export class Tab3Page {
+
+  UserService = inject(UserService);
+  userVisible : boolean = false
+  user:any
+
   constructor(private modalController: ModalController, private alertController: AlertController, private router: Router) {}
 
   async navigateToEditUser() {
@@ -41,7 +48,10 @@ export class Tab3Page {
         {
           text: 'Eliminar',
           handler: () => {
-            this.deleteAccount();
+            this.UserService.deleteUser(this.user).subscribe((deleteduser) => {
+              console.log('Cuenta eliminada exitosamente');
+              this.router.navigate(['login']);// Lógica adicional después de eliminar la cuenta
+            });
           }
         }
       ]
@@ -50,9 +60,7 @@ export class Tab3Page {
     await alert.present();
   }
 
-  deleteAccount() {
-    // Lógica para eliminar la cuenta
-  }
+  
   redirectToLogin() {
     this.router.navigate(['login']);
   }
