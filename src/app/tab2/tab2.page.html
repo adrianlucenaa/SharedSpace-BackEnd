@@ -1,27 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Apartment
-    </ion-title>
+      SharedSpace
+    </ion-title>  
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Apartment</ion-title>
-    </ion-toolbar>
-  </ion-header>
-@if(apartment){
-  <ion-card>
+
+<ion-content [fullscreen]="true" class="content-background">
+  <ion-card *ngIf="apartmentVisible">
+    <!-- Aquí muestras la información del apartamento -->
     <img alt="Silhouette of mountains" src="{{apartment.img}}" />
     <ion-card-header>
       <ion-card-title>{{apartment.name}}</ion-card-title>
       <ion-card-subtitle>{{apartment.nameowner}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-button size="large" (click)="navigateToApartment()" >Apartment</ion-button>
+    <ion-button size="large" (click)="navigateToApartment()">Apartment</ion-button>
   </ion-card>
-  @if(apartmentVisible){
-    <app-apartment></app-apartment>
-  }
-}
+  <div *ngIf="!apartmentVisible">
+    <br>
+    <!-- Aquí puedes mostrar un mensaje o botones para crear o buscar apartamentos -->
+    <h3 style="color: black; text-align: center;">Usuario sin apartamento asignado</h3>
+    <br>
+    <!-- Aquí puedes poner botones o enlaces para acciones como crear o buscar apartamentos -->
+    <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" >Search Apartment</ion-button>
+    <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToCreateApartment()">Create Apartment</ion-button>
+  </div>
 </ion-content>
