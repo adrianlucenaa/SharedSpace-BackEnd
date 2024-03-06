@@ -13,9 +13,26 @@ import { Router } from '@angular/router';
   imports: [CommonModule, IonicModule],
 })
 export class Tab1Page {
+  username: string | null = null; // Inicializa como null
   showLogin: boolean = false;
 
   constructor(private router: Router){}
+  
+  ngOnInit() {
+    // Recuperar el nombre de usuario del almacenamiento local
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername !== null) {
+      this.username = storedUsername;
+    }
+    console.log(this.username);
+  }
+
+
+  goToMoreInfo() {
+    this.router.navigate(['user-info']);
+  }
+
+
   
   goToTasks() {
     this.router.navigate(['tasks']);

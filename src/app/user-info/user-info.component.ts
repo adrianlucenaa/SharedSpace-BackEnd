@@ -1,4 +1,5 @@
-/**import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-info',
@@ -7,13 +8,9 @@
 })
 export class UserInfoComponent  {
 
-  constructor(public taskS: TaskService,
-    public modalController: ModalController,
-    private alertController: AlertController) {
-      console.log("CONS")
+  constructor(router: Router) {
+      
      }
 
- 
 
-}
-**/
+} 
