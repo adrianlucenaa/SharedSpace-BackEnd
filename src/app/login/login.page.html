@@ -10,21 +10,20 @@
   <div class="content-wrapper">
     <img src="../../assets/images/loguete.png" alt="Logo" class="logo">
     <div class="form-container">
-      <form class="ion-padding form-margin">
+      <form class="ion-padding form-margin" >
         <ion-item lines="none" class="input-item">
           <ion-label position="stacked">Email address</ion-label>
-          <ion-input type="email" name="floating_email" id="floating_email" required></ion-input>
+          <ion-input type="email" name="floating_email" id="floating_email" required [(ngModel)]="loginForm.usernameOrEmail"></ion-input>
         </ion-item>
 
         <ion-item lines="none" class="input-item">
           <ion-label position="stacked">Password</ion-label>
-          <ion-input type="password" name="floating_password" id="floating_password" required></ion-input>
+          <ion-input type="password" name="floating_password" id="floating_password" required [(ngModel)]="loginForm.password"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" color="primary" type="submit" class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="redirectToTab1()">Submit</ion-button>
-        <ion-button expand="block" color="primary"  (click)="redirectToRegister()">Register</ion-button>
+        <ion-button expand="block" color="primary" type="submit" class="dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="login()">Submit</ion-button>
+        <ion-button expand="block" color="primary" (click)="redirectToRegister()">Register</ion-button>
       </form>
     </div>
   </div>
 </ion-content>
-
