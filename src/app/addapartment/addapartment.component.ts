@@ -29,4 +29,5 @@ export class AddapartmentComponent  {
       this.apartment = createdApartment;
     })
   } 
+  
 }
