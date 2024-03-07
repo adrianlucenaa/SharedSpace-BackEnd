@@ -1,3 +1,52 @@
-<p>
-  addapartment works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Apartment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-wrapper">
+    <form class="ion-padding form-margin" >
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12" size-md="6" class="ion-no-padding">
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked">Address</ion-label>
+              <ion-input type="text"  name="floating_apartment_address" [(ngModel)]="apartment.address" required></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12" size-md="6" class="ion-no-padding">
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked">Owner Number (123-45-67-89)</ion-label>
+              <ion-input type="number" pattern="[0-9]{9}" name="floating_apartment_owner_number" [(ngModel)]="apartment.numberowner" required></ion-input>
+          </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" size-md="6" class="ion-no-padding">
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked">Owner Name</ion-label>
+              <ion-input type="text" name="floating_apartment_owner_name"   [(ngModel)]="apartment.nameowner" required></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-item lines="none" class="rounded-item">
+        <ion-label position="stacked">Gmail Owner</ion-label>
+        <ion-input type="email" name="floating_apartment_owner_email" [(ngModel)]="apartment.owneremail" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="rounded-item">
+        <ion-label position="stacked">Apartment Name</ion-label>
+        <ion-input type="text" name="floating_apartment_name" [(ngModel)]="apartment.name" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" type="submit" (click)="createApartment()">Submit</ion-button>
+    </form>
+  </div>
+</ion-content>
