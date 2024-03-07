@@ -13,7 +13,7 @@ import { ApartmentService } from '../services/apartment.service';
   imports:[IonicModule,CommonModule,FormsModule,ApartmentComponent],
   providers: [ApartmentService]
 })
-export class ApartmentComponent  implements OnInit {
+export class ApartmentComponent  {
 
   
   ApartmentService = inject(ApartmentService);
@@ -25,7 +25,7 @@ export class ApartmentComponent  implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {}
+  
 
   navigateToHome() {
     this.router.navigate(['/home']);

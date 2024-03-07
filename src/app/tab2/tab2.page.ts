@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ApartmentService } from '../services/apartment.service';
 import { Router } from '@angular/router'; 
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -21,7 +22,13 @@ export class Tab2Page  {
   constructor(private router: Router, private apartmentService: ApartmentService) {}
 
   ngOnInit(): void {
-    this.apartmentService.getApartmentByUser(13).subscribe(apartment => {
+    console.log(localStorage.getItem('id'));
+    this.apartmentService.getApartmentByUser(localStorage.getItem('id')).pipe(
+      catchError(error => {
+        // Manejar el error aquí, por ejemplo:
+        return of(null); // Devolver un observable con un valor nulo para que el flujo continúe
+      })
+    ).subscribe(apartment => {
       if (apartment) {
         this.apartment = apartment;
         this.apartmentVisible = true;
@@ -30,11 +37,7 @@ export class Tab2Page  {
         // Aquí puedes manejar el caso en que el usuario no tenga un apartamento asignado
         // Puedes mostrar un mensaje o botones para crear o buscar apartamentos
         console.log("El usuario no tiene un apartamento asignado.");
-        this.showButtons = true;
-
-        
-
-        
+        this.showButtons = true;    
       }
     });
   }
