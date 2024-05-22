@@ -3,20 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-
-    private apiUrl = 'http://localhost:8081/users';
-
+  private apiUrl = 'https://sharedspacebackend.onrender.com/user';
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
+    return this.http.get<User[]>(`${this.apiUrl}`);
   }
 
   registerUser(user: any): Observable<any> {
@@ -24,7 +21,7 @@ export class UserService {
       .set('Content-Type', 'application/json')
       .set('Accept', '*/*');
 
-    return this.http.post(this.apiUrl, user, { headers: headers });
+    return this.http.post(`${this.apiUrl}`, user, { headers: headers });
   }
 
   updateUser(user: User): Observable<User> {
@@ -35,12 +32,11 @@ export class UserService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  getUsersTaskUncompleted(user: User):Observable<User>{
+  getUsersTaskUncompleted(user: User): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/taskuncompleted/${user}`);
   }
 
-  getUsersByName(name: User):Observable<User>{
+  getUsersByName(name: User): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/name/${name}`);
   }
-  
 }
