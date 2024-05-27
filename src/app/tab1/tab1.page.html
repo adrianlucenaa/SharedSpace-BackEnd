@@ -2,30 +2,43 @@
   <ion-toolbar>
     <ion-title>
       SharedSpace
-    </ion-title>    
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="content-background">
-  <ion-card style="margin-top: 10px; "> <!-- Agregar margen superior para separar del header -->
+  <ion-card style="margin-top: 5%; margin-left: 5%; margin-right: 5%;" (click)="goToTasks()"> <!-- Agregar margen superior para separar del header -->
     <div style="display: flex; align-items: center;">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" style="width: 150px; height: auto; object-fit: cover; margin-right: 10px; border-radius: 10px; " /> <!-- Recortar la imagen y agregar margen derecho -->
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" style="width: 150px; height: auto; object-fit: cover; margin-right: 10px; border-radius: 10px;" /> <!-- Recortar la imagen y agregar margen derecho -->
       <div style="flex: 1;">
         <ion-card-header>
           <ion-card-title>{{username}}</ion-card-title>
-          <ion-button fill="clear" (click)="goToMoreInfo()">More info</ion-button>
-        </ion-card-header>      
-      </div>      
+          <ion-button fill="clear" (click)="goToMoreInfo($event)">More info</ion-button>
+        </ion-card-header>
+      </div>
     </div>
   </ion-card>
 
-  <div style="display: flex; justify-content: center; margin-top: 20px;">
+  <div style="display: flex; justify-content: center; margin-top: 2%; height: 50%;">
     <ion-datetime class="datetime-margin" locale="en-GB" hourCycle="h12"></ion-datetime>
   </div>
-  <ion-button style="margin-top: 10px; margin-left: 20px; margin-right: 20px;" expand="block" (click)="goToTasks()">Create a Task</ion-button>
 
-  
-  
+  <ion-card style="margin-top: 3%; margin-left: 5%; margin-right: 5%; height: 25%;" (click)="goToTasksviews()"> <!-- Hacer el card clickeable -->
+    <ion-card-header>
+      <ion-card-title>Task List</ion-card-title>
+    </ion-card-header>
+    <div class="scroll-container">
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{item}}
+        </ion-item>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
+          <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more items...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </div>
+  </ion-card>
 
+  <ion-button style="margin-top: 1%; margin-left: 5%; margin-right: 5%;" expand="block" (click)="goToTasks()">Create a Task</ion-button>
 </ion-content>
-

@@ -3,12 +3,12 @@ import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss'],
+  templateUrl: './add-tasks.component.html',
+  styleUrls: ['./add-tasks.component.scss'],
   standalone: true,
   imports:[IonicModule],
 })
-export class TasksComponent{
+export class AddTasksComponent{
   
 
 

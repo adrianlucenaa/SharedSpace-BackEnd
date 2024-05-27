@@ -1,44 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'app-tasks-views',
+  templateUrl: './tasks-views.component.html',
+  styleUrls: ['./tasks-views.component.scss'],
   standalone: true,
   imports: [CommonModule, IonicModule],
 })
-export class Tab1Page implements OnInit {
-  username: string | null = null; // Inicializa como null
-  showLogin: boolean = false;
+export class TasksViewsComponent {
   items: string[] = [];
   itemCount: number = 20;
 
-  constructor(private router: Router) {}
+  constructor( private router: Router) { }
 
-  ngOnInit() {
-    // Recuperar el nombre de usuario del almacenamiento local
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername !== null) {
-      this.username = storedUsername;
-    }
-    console.log(this.username);
-    this.loadInitialItems();
-  }
-
-  goToMoreInfo(event: Event) {
-    event.stopPropagation(); // Para evitar que se dispare el click del card
-    this.router.navigate(['user-info']);
-  }
-
-  goToTasksviews(){
-    this.router.navigate(['tasks-views']);
-  }
+  
 
   goToTasks() {
     this.router.navigate(['tasks']);
+  }
+
+  deleteTask() {
+    
   }
 
   loadInitialItems() {
@@ -61,4 +46,5 @@ export class Tab1Page implements OnInit {
       }
     }, 500);
   }
+
 }

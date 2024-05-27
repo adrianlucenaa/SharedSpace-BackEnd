@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tasks</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="add-circle-outline" size="large" src="../assets/tabs/add-circle-outline.svg" (click)="goToTasks()" style="margin-right: 10%;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-background">
+  <ion-card style="margin-top: 3%; margin-left: 5%; margin-right: 5%; height: 85%;">
+    <ion-card-header>
+      <ion-card-title>Task List</ion-card-title>
+    </ion-card-header>
+    <div class="scroll-container">
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{item}}
+        </ion-item>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
+          <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more items...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </div>
+  </ion-card>
+  <ion-button style="margin-top: 1%; margin-left: 5%; margin-right: 5%;" expand="block" (click)="goToTasks()">Editar</ion-button>
+  <ion-button style="margin-top: 2%; margin-left: 5%; margin-right: 5%;" color="danger" expand="block" (click)="deleteTask()">Eliminar</ion-button>
+</ion-content>

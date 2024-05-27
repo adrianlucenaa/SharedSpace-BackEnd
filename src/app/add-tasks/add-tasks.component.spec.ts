@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TasksComponent } from './tasks.component';
+import { TasksComponent } from './add-tasks.component';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
