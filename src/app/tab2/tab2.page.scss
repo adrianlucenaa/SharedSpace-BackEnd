@@ -4,3 +4,13 @@
 .p{
     color: black;
 }
+
+
+.scroll-container {
+  max-height: 70%; /* Altura máxima del contenedor con scroll */
+  overflow-y: auto; /* Habilitar scroll vertical */
+}
+
+.ion-card{
+  border-radius: 10px;
+}

@@ -10,6 +10,7 @@ import { AddTasksComponent } from './add-tasks/add-tasks.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { AddapartmentComponent } from './addapartment/addapartment.component';
 import { TasksViewsComponent } from './tasks-views/tasks-views.component';
+import { AddReminderComponent } from './add-reminder/add-reminder.component';
 
 
 export const routes: Routes = [
@@ -18,10 +19,11 @@ export const routes: Routes = [
   { path: 'login', component: LoginPage },
   { path: 'register', component: RegisterComponent },
   {path: 'edituser', component: EdituserComponent},
-  {path: 'tasks', component: AddTasksComponent},
+  {path: 'addTasks', component: AddTasksComponent},
   {path: 'user-info', component: UserInfoComponent},
   {path: 'addapartment', component: AddapartmentComponent},
   {path: 'tasks-views', component: TasksViewsComponent},
+  {path: 'add-reminder', component: AddReminderComponent},
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.routes').then(m => m.routes)

@@ -4,25 +4,24 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tasks-views',
-  templateUrl: './tasks-views.component.html',
-  styleUrls: ['./tasks-views.component.scss'],
+  selector: 'app-reminder-views',
+  templateUrl: './reminder-views.component.html',
+  styleUrls: ['./reminder-views.component.scss'],
   standalone: true,
   imports: [CommonModule, IonicModule],
 })
-export class TasksViewsComponent {
+export class ReminderViewsComponent  {
+
   items: string[] = [];
   itemCount: number = 20;
 
   constructor( private router: Router) { }
 
-  
-
-  goToTasks() {
-    this.router.navigate(['addTasks']);
+  goToAddReminder() {
+    this.router.navigate(['addReminder']);
   }
 
-  deleteTask() {
+  deleteReminder() {
     
   }
 

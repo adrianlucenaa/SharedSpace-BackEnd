@@ -14,8 +14,27 @@
       <ion-card-title>{{apartment.name}}</ion-card-title>
       <ion-card-subtitle>{{apartment.nameowner}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-button size="large" (click)="navigateToApartment()">Apartment</ion-button>
+    <ion-button size="large" (click)="navigateToApartment()">Go {{apartament.name}}</ion-button>
   </ion-card>
+
+  <ion-card style="margin-top: 3%; margin-left: 5%; margin-right: 5%; height: 25%;" (click)="goToRemindersViews()"> <!-- Hacer el card clickeable -->
+    <ion-card-header>
+      <ion-card-title>Reminder List</ion-card-title>
+    </ion-card-header>
+    <div class="scroll-container">
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{item}}
+        </ion-item>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
+          <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more reminders...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </div>
+  </ion-card>
+
+
   <div *ngIf="!apartmentVisible">
     <br>
     <!-- Aquí puedes mostrar un mensaje o botones para crear o buscar apartamentos -->

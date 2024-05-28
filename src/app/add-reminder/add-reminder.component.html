@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Reminder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="content-wrapper">
+    <img src="../../assets/images/reminderbg.png" class="giphy-embed">
+   
+    <form class="ion-padding form-margin">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12" size-md="6" class="ion-no-padding">
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked" >Reminder Description</ion-label>
+              <ion-input type="text" name="floating_first_name" id="floating_first_name" required></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12" size-md="6" class="ion-no-padding" >
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked" class="label-description">Description</ion-label>
+              <ion-textarea name="description" id="description" rows="6" required></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>
+              <ion-input>
+                <ion-checkbox style="color: black;">Completed</ion-checkbox>
+            </ion-input>
+            </label> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-button expand="block" color="primary" type="submit">Create</ion-button>
+    </form>
+  </div>
+</ion-content>
+
