@@ -8,7 +8,7 @@ import { User } from '../model/user.model';
 })
 export class UserService {
 
-  private apiUrl = 'https://sharedspacebackend.onrender.com/user';
+  private apiUrl = 'http://localhost:8081/users';
 
   constructor(private http: HttpClient) { }
 

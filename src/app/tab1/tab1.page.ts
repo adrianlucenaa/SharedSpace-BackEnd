@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab1',
@@ -16,7 +18,7 @@ export class Tab1Page implements OnInit {
   items: string[] = [];
   itemCount: number = 20;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient, private UserService: UserService) {}
 
   ngOnInit() {
     // Recuperar el nombre de usuario del almacenamiento local
