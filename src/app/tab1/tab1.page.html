@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="content-background">
-  <ion-card style="margin-top: 5%; margin-left: 5%; margin-right: 5%;" (click)="goToTasks()"> <!-- Agregar margen superior para separar del header -->
+  <ion-card style="margin-top: 5%; margin-left: 5%; margin-right: 5%;"> <!-- Agregar margen superior para separar del header -->
     <div style="display: flex; align-items: center;">
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" style="width: 150px; height: auto; object-fit: cover; margin-right: 10px; border-radius: 10px;" /> <!-- Recortar la imagen y agregar margen derecho -->
       <div style="flex: 1;">
@@ -39,6 +39,4 @@
       </ion-list>
     </div>
   </ion-card>
-
-  <ion-button style="margin-top: 1%; margin-left: 5%; margin-right: 5%;" expand="block" (click)="goToTasks()">Create a Task</ion-button>
 </ion-content>

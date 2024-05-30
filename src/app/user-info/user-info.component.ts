@@ -32,20 +32,28 @@ export class UserInfoComponent implements OnInit {
      ngOnInit() {
       // Recuperar el nombre de usuario del almacenamiento local
       const storedUsername = localStorage.getItem('username');
-      const storedsurname = localStorage.getItem('surname');
-      const storedid = localStorage.getItem('id');
-      const storedemail = localStorage.getItem('email');
-      const storeddni = localStorage.getItem('dni');
-      if (storedUsername !== null) {
-        this.username = storedUsername;
-        this.surname = storedsurname;
-        this.id = storedid ? parseInt(storedid) : null;
-        this.email = storedemail;
-        this.dni = storeddni;
-      }
+      const storedSurname = localStorage.getItem('surname');
+      const storedId = localStorage.getItem('id');
+      const storedEmail = localStorage.getItem('email');
+      const storedDni = localStorage.getItem('dni');
+    
+      // Verifica si las claves existen en localStorage
+      console.log('storedUsername:', storedUsername);
+      console.log('storedSurname:', storedSurname);
+      console.log('storedId:', storedId);
+      console.log('storedEmail:', storedEmail);
+      console.log('storedDni:', storedDni);
+    
+      this.username = storedUsername ? storedUsername : null;
+      this.surname = storedSurname ? storedSurname : null;
+      this.id = storedId ? parseInt(storedId, 10) : null;
+      this.email = storedEmail ? storedEmail : null;
+      this.dni = storedDni ? storedDni : null;
+    
       console.log(this.username, this.surname, this.id, this.email, this.dni);
       this.loadInitialItems();
     }
+    
     
 
     loadInitialItems() {

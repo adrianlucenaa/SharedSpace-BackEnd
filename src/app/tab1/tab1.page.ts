@@ -39,10 +39,6 @@ export class Tab1Page implements OnInit {
     this.router.navigate(['tasks-views']);
   }
 
-  goToTasks() {
-    this.router.navigate(['tasks']);
-  }
-
   loadInitialItems() {
     for (let i = 0; i < this.itemCount; i++) {
       this.items.push(`Item ${i + 1}`);

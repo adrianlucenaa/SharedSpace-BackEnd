@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ApartmentComponent } from '../apartment/apartment.component';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -13,7 +13,7 @@ import { catchError, of } from 'rxjs';
   standalone: true,
   imports: [IonicModule,ApartmentComponent, CommonModule],
 })
-export class Tab2Page  {
+export class Tab2Page implements OnInit {
 
   apartmentVisible: boolean = false;
   showButtons: boolean = false; // Variable para controlar la visibilidad de los botones
