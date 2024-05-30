@@ -11,6 +11,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { AddapartmentComponent } from './addapartment/addapartment.component';
 import { TasksViewsComponent } from './tasks-views/tasks-views.component';
 import { AddReminderComponent } from './add-reminder/add-reminder.component';
+import { ReminderViewsComponent } from './reminder-views/reminder-views.component';
+
 
 
 export const routes: Routes = [
@@ -24,6 +26,7 @@ export const routes: Routes = [
   {path: 'addapartment', component: AddapartmentComponent},
   {path: 'tasks-views', component: TasksViewsComponent},
   {path: 'add-reminder', component: AddReminderComponent},
+  {path: 'reminder-views', component: ReminderViewsComponent},
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.routes').then(m => m.routes)

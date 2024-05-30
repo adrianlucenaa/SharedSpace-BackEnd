@@ -39,6 +39,9 @@ export class LoginPage  {
           console.log('Inicio de sesión exitoso:', this.authenticatedUser);
           localStorage.setItem('username', this.authenticatedUser.name);
           localStorage.setItem('id', this.authenticatedUser.id.toString());
+          localStorage.setItem('email', this.authenticatedUser.email);
+          localStorage.setItem('dni', this.authenticatedUser.dni);
+          localStorage.setItem('surname', this.authenticatedUser.surname);
           this.router.navigate(['tabs/tab1']);
 
           // Aquí puedes redirigir al usuario a otra página o realizar otras acciones necesarias

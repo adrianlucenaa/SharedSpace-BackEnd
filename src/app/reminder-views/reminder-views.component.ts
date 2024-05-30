@@ -18,7 +18,7 @@ export class ReminderViewsComponent  {
   constructor( private router: Router) { }
 
   goToAddReminder() {
-    this.router.navigate(['addReminder']);
+    this.router.navigate(['add-reminder']);
   }
 
   deleteReminder() {

@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -9,8 +10,12 @@ import { IonicModule } from '@ionic/angular';
   imports:[IonicModule],
 })
 export class AddTasksComponent{
-  
 
+  constructor(private router: Router) { }
+  
+  goToTasksviews(){
+    this.router.navigate(['tasks-views']);
+  }
 
   
 }

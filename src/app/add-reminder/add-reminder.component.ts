@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-reminder',
@@ -10,8 +11,10 @@ import { IonicModule } from '@ionic/angular';
 })
 export class AddReminderComponent  {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  
+  GoToReminderViews(){
+    this.router.navigate(['reminder-views']);
 
+}
 }
