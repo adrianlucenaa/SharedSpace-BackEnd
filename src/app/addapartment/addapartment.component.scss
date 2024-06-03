@@ -12,6 +12,10 @@
     max-width: 400px; /* Opcional: establece el ancho máximo del formulario */
   }
 
+  img{
+    width: 50%;
+  }
+
   .rounded-item {
     border-radius: 10px; /* Añade bordes redondos a los elementos ion-item */
     margin-bottom: 5px; /* Reducir la separación entre elementos */

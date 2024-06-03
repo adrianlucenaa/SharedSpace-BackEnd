@@ -1,0 +1,14 @@
+.ion-card{
+    border-radius: 10px;
+  }
+
+
+  .content-background {
+    --ion-background-color: aliceblue;
+  }
+
+  
+.scroll-container {
+    max-height: 70%; /* Altura máxima del contenedor con scroll */
+    overflow-y: auto; /* Habilitar scroll vertical */
+  }
