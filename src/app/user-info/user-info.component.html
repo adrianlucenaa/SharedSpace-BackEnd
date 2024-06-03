@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Usuario <!--Aqui iria el nombre del usuario-->
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-wrapper">
+  <div>
+    <div class="container">
+      <form class="ion-padding margin">
+        <ion-item lines="none" class="item">
+          <ion-label >Id user : {{id}}</ion-label> <!--Aqui iria el id del usuario-->
+        </ion-item>
+
+        <ion-item lines="none" class="item">
+          <ion-label>Name : {{username}}</ion-label> <!--Aqui iria el nombre del usuario-->
+        </ion-item>
+
+        <ion-item lines="none" class="item">
+          <ion-label>Surname : {{surname}}</ion-label> <!--Aqui iria el apellido del usuario-->
+        </ion-item>
+
+        <ion-item lines="none" class="item">
+          <ion-label>Email : {{email}}</ion-label> <!--Aqui iria el email del usuario-->
+        </ion-item>
+
+        <ion-item lines="none" class="item">
+          <ion-label>DNI : {{dni}}</ion-label> <!--Aqui iria el dni del usuario-->
+        </ion-item>
+      </form>
+    </div>
+  </div>
+</ion-content>

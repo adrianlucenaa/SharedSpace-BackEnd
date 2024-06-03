@@ -1,11 +1,26 @@
 .content-background {
-    --ion-background-color: white;
-  }
-  .datetime-margin {
-    margin-top: 10px; /* Mismo margen que el ion-card */
-    margin-left: 10px; /* Margen izquierdo para que coincida con el margen del ion-card */
-    margin-right: 10px; /* Margen derecho para que coincida con el margen del ion-card */
-    background-color: #203959;
-    border-radius: 10px; /* ajusta el valor según sea necesario */
-  } 
-  
+  --ion-background-color: aliceblue;
+}
+
+.datetime-margin {
+  margin-top: 10px; /* Mismo margen que el ion-card */
+  margin-left: 10px; /* Margen izquierdo para que coincida con el margen del ion-card */
+  margin-right: 10px; /* Margen derecho para que coincida con el margen del ion-card */
+  background-color: #203959;
+  border-radius: 10px; /* ajusta el valor según sea necesario */
+
+}
+
+.scroll-container {
+  max-height: 70%; /* Altura máxima del contenedor con scroll */
+  overflow-y: auto; /* Habilitar scroll vertical */
+}
+
+.datetime-time{
+  display: none;
+
+}
+
+.ion-card{
+  border-radius: 10px;
+}

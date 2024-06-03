@@ -1,29 +1,29 @@
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height: calc(100vh - 56px); /* Subtracting the height of the header */
-    background-color: white;
+    height: 100%; /* Subtracting the height of the header */
+    background-color: rgb(249, 241, 241);
   }
 
   .form-container {
-    margin-top: 20px; /* Ajusta el espacio entre el logo y el formulario */
+    margin-top: 10%; /* Ajusta el espacio entre el logo y el formulario */
   }
 
   .form-margin {
     margin: 0 20px; /* Ajusta el margen horizontal del formulario según sea necesario */
-    max-width: 400px; /* Opcional: establece el ancho máximo del formulario */
+    max-width: 100%; /* Opcional: establece el ancho máximo del formulario */
   }
 
   .input-item {
-    margin-bottom: 20px; /* Añade espacio entre los elementos de entrada */
+    margin-bottom: 10%; /* Añade espacio entre los elementos de entrada */
     border-radius: 10px; /* Redondea los bordes de los elementos de entrada */
     
   }
 
   .logo {
-    width: 150px; /* Ajusta el ancho del logo */
+    width: 50%; /* Ajusta el ancho del logo */
     height: auto; /* Permite que la altura se ajuste proporcionalmente */
   }
   

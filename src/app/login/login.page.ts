@@ -13,6 +13,8 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
+
+
 export class LoginPage  {
   loginForm = {
     usernameOrEmail: '',
@@ -37,6 +39,10 @@ export class LoginPage  {
           console.log('Inicio de sesión exitoso:', this.authenticatedUser);
           localStorage.setItem('username', this.authenticatedUser.name);
           localStorage.setItem('id', this.authenticatedUser.id.toString());
+          localStorage.setItem('email', this.authenticatedUser.email);
+          localStorage.setItem('dni', this.authenticatedUser.dni);
+          localStorage.setItem('surname', this.authenticatedUser.surname);
+          localStorage.setItem('apartmentId', this.authenticatedUser.apartmentId.toString());
           this.router.navigate(['tabs/tab1']);
 
           // Aquí puedes redirigir al usuario a otra página o realizar otras acciones necesarias
