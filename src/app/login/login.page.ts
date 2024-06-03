@@ -42,6 +42,7 @@ export class LoginPage  {
           localStorage.setItem('email', this.authenticatedUser.email);
           localStorage.setItem('dni', this.authenticatedUser.dni);
           localStorage.setItem('surname', this.authenticatedUser.surname);
+          localStorage.setItem('apartmentId', this.authenticatedUser.apartmentId.toString());
           this.router.navigate(['tabs/tab1']);
 
           // Aquí puedes redirigir al usuario a otra página o realizar otras acciones necesarias

@@ -14,7 +14,7 @@ import { catchError, of } from 'rxjs';
   imports: [IonicModule,ApartmentComponent, CommonModule],
 })
 export class Tab2Page implements OnInit {
-
+  apartmentId: number | null = null;
   apartmentVisible: boolean = false;
   showButtons: boolean = false; // Variable para controlar la visibilidad de los botones
   apartment: any;
@@ -24,25 +24,31 @@ export class Tab2Page implements OnInit {
   constructor(private router: Router, private apartmentService: ApartmentService) {}
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('id'));
-    this.apartmentService.getApartmentByUser(localStorage.getItem('id')).pipe(
-      catchError(error => {
-        // Manejar el error aquí, por ejemplo:
-        return of(null); // Devolver un observable con un valor nulo para que el flujo continúe
-      })
-    ).subscribe(apartment => {
-      if (apartment) {
-        this.apartment = apartment;
-        this.apartmentVisible = true;
-        this.showButtons = false;
-      } else {
-        // Aquí puedes manejar el caso en que el usuario no tenga un apartamento asignado
-        // Puedes mostrar un mensaje o botones para crear o buscar apartamentos
-        console.log("El usuario no tiene un apartamento asignado.");
-        this.showButtons = true;    
-      }
-    });
+    console.log(this.apartmentId);
+    const apartmentIdStr = localStorage.getItem('apartmentId');
+    this.apartmentId = apartmentIdStr ? parseInt(apartmentIdStr) : null;
+    if (this.apartmentId) {
+      this.apartmentService.getApartmentByUser(this.apartmentId).pipe(
+        catchError(error => {
+          console.error('Error al obtener apartamento', error);
+          return of(null);
+        })
+      ).subscribe(apartment => {
+        if (apartment) {
+          this.apartment = apartment;
+          this.apartmentVisible = true;
+        } else {
+          console.log("El usuario no tiene un apartamento asignado.");
+          this.showButtons = true;
+        }
+      });
+    } else {
+      console.log("No se encontró apartmentId en localStorage.");
+      this.showButtons = true;
+    }
   }
+
+
 //Boton para crear apartamento  
 goToCreateApartment() {
   this.router.navigate(['addapartment']);

@@ -2,46 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'app-tab4',
+  templateUrl: 'tab4.page.html',
+  styleUrls: ['tab4.page.scss'],
   standalone: true,
   imports: [CommonModule, IonicModule],
 })
-export class Tab1Page implements OnInit {
-  username: string | null = null; // Inicializa como null
-  showLogin: boolean = false;
+export class Tab4Page {
   items: string[] = [];
   itemCount: number = 20;
 
-  constructor(private router: Router, private http: HttpClient, private UserService: UserService) {}
-
-  ngOnInit() {
-    // Recuperar el nombre de usuario del almacenamiento local
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername !== null) {
-      this.username = storedUsername;
-    }
-    console.log(this.username);
-    this.loadInitialItems();
-  }
-
-  goToMoreInfo(event: Event) {
-    event.stopPropagation(); // Para evitar que se dispare el click del card
-    this.router.navigate(['user-info']);
-  }
-
-  goToSurveysviews(){
-    this.router.navigate(['survey-views']);
-  }
-
-  goToTasksviews(){
-    this.router.navigate(['tasks-views']);
-  }
+  constructor(private router: Router, private http: HttpClient) {}
 
   loadInitialItems() {
     for (let i = 0; i < this.itemCount; i++) {
@@ -63,4 +37,5 @@ export class Tab1Page implements OnInit {
       }
     }, 500);
   }
+
 }
