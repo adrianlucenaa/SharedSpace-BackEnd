@@ -19,11 +19,15 @@ export class AddapartmentComponent  {
   apartmentVisible: boolean = false;
   apartment: Apartment = {};
 
+  /*ngOnInit(): void {
+    // Asignar un ID por defecto
+   this.apartment.id = 0; //Puedes asignar cualquier valor que desees como ID por defecto
+  }*/
+
   constructor(private apartmentService: ApartmentService, private router: Router) { }
 
  createApartment() {
-  this.apartment.id=0;
-    console.log(this.apartment);
+  console.log(this.apartment);
     this.apartmentService.createApartment(this.apartment).subscribe((createdApartment) => {
       console.log('Nuevo apartamento creado:', createdApartment);
       this.apartment = createdApartment;
