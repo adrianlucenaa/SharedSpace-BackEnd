@@ -48,6 +48,10 @@ goToCreateApartment() {
   this.router.navigate(['addapartment']);
 }
 
+goToSearchApartment() {
+  this.router.navigate(['SearchApartmentComponent']);
+}
+
 goToMoreInfo(event: Event) {
   event.stopPropagation(); // Para evitar que se dispare el click del card
   this.router.navigate(['user-info']);
