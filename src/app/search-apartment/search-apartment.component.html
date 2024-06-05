@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Apartment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-wrapper">
+    <img src="../../assets/images/apartamentorp.png" alt="">
+    <form class="ion-padding form-margin">
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12" size-md="6" class="ion-no-padding">
+            <ion-item lines="none" class="rounded-item">
+              <ion-label position="stacked">Apartment Name</ion-label>
+              <ion-input type="text" name="floating_apartment_address"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid> <!-- Cerrar ion-grid aquí -->
+      <ion-button expand="block" color="primary" type="submit" (click)="enterToApartment()">Submit</ion-button>
+    </form>
+  </div>
+</ion-content>
