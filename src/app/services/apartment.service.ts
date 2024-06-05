@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApartmentService {
 
-    private apiUrl = 'http://localhost:8081/apartment';
+    private apiUrl = 'http://localhost:8081/apartments';
 
 
   constructor(private http: HttpClient) { }
