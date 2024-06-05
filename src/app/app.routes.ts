@@ -14,6 +14,7 @@ import { AddReminderComponent } from './add-reminder/add-reminder.component';
 import { ReminderViewsComponent } from './reminder-views/reminder-views.component';
 import { AddSurveyComponent } from './add-survey/add-survey.component';
 import { SurveysViewsComponent } from  './surveys-views/surveys-views.component';
+import { SearchApartmentComponent } from './search-apartment/search-apartment.component';
 
 
 
@@ -31,6 +32,7 @@ export const routes: Routes = [
   {path: 'reminder-views', component: ReminderViewsComponent},
   {path: 'add-survey', component: AddSurveyComponent},
   {path: 'survey-views', component: SurveysViewsComponent},
+  {path: 'SearchApartmentComponent', component: SearchApartmentComponent},
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.routes').then(m => m.routes)
