@@ -24,3 +24,34 @@
 .ion-card{
   border-radius: 10px;
 }
+
+.vertical-stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.stacked-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.stacked-content ion-card-title,
+.stacked-content ion-card-subtitle,
+.stacked-content ion-button {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.same-font-style {
+  font-family: 'Arial', sans-serif; /* Cambia 'Arial' por la fuente que desees usar */
+  font-size: 20px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  font-weight: bold; /* Opcional: ajusta el peso de la fuente */
+  color: #000000; /* Cambia el color de la fuente según tus necesidades */
+}
+
+

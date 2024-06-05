@@ -5,6 +5,7 @@ export class User {
     surname?: string;
     email?: string;
     dni?: string;
-    password?: string;       
+    password?: string;
+    // Apartment?: string;   
     
 }

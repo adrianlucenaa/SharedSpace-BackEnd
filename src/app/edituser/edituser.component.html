@@ -1,23 +1,25 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Edit Account</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true" class="content-wrapper">
   <div>
     <div class="form-container">
       <form class="ion-padding form-margin">
         <ion-item lines="none" class="input-item">
-          <ion-label position="stacked">Email address</ion-label>
-          <ion-input type="email" name="floating_email" id="floating_email" required [(ngModel)]="user.email"></ion-input>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input type="text" name="floating_name" id="floating_name" required [(ngModel)]="user.name"></ion-input>
         </ion-item>
-
         <ion-item lines="none" class="input-item">
-          <ion-label position="stacked">Password</ion-label>
-          <ion-input type="password" name="floating_password" id="floating_password" required [(ngModel)]="user.password"></ion-input>
+          <ion-label position="stacked">Surname</ion-label>
+          <ion-input type="text" name="floating_surname" id="floating_surname" required [(ngModel)]="user.surname"></ion-input>
         </ion-item>
-
+        <ion-item lines="none" class="input-item">
+          <ion-label position="stacked">DNI</ion-label>
+          <ion-input type="text" name="floating_dni" id="floating_dni" required [(ngModel)]="user.dni"></ion-input>
+        </ion-item>
         <ion-button expand="block" color="primary" type="button" (click)="goBack()">Back</ion-button>
         <ion-button expand="block" color="primary" type="button" (click)="updateUser()">Save</ion-button>
       </form>

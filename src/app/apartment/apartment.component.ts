@@ -36,6 +36,7 @@ export class ApartmentComponent  {
   }
 
   saveChanges() {
+    //MLogica que creea el apartamento
     this.ApartmentService.createApartment(this.apartment).subscribe((createdApartment) => {
       console.log('Nuevo apartamento creado:', createdApartment);
       this.apartment = createdApartment;

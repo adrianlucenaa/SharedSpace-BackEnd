@@ -14,38 +14,32 @@ import { catchError, of } from 'rxjs';
   imports: [IonicModule,ApartmentComponent, CommonModule],
 })
 export class Tab2Page implements OnInit {
-  apartmentId: number | null = null;
+  
   apartmentVisible: boolean = false;
   showButtons: boolean = false; // Variable para controlar la visibilidad de los botones
-  apartment: any;
+  apartment: any = {};
   items: string[] = [];
   itemCount: number = 20;
 
   constructor(private router: Router, private apartmentService: ApartmentService) {}
 
   ngOnInit(): void {
-    console.log(this.apartmentId);
-    const apartmentIdStr = localStorage.getItem('apartmentId');
-    this.apartmentId = apartmentIdStr ? parseInt(apartmentIdStr) : null;
-    if (this.apartmentId) {
-      this.apartmentService.getApartmentByUser(this.apartmentId).pipe(
-        catchError(error => {
-          console.error('Error al obtener apartamento', error);
-          return of(null);
-        })
-      ).subscribe(apartment => {
-        if (apartment) {
-          this.apartment = apartment;
-          this.apartmentVisible = true;
-        } else {
-          console.log("El usuario no tiene un apartamento asignado.");
-          this.showButtons = true;
-        }
-      });
-    } else {
-      console.log("No se encontró apartmentId en localStorage.");
-      this.showButtons = true;
-    }
+    /*
+    //Metodo y logica que haga si el cliente tiene un apartamento te lo muestre , si no te envie un mensaje de que no posible mostrarlo
+    this.apartmentService.updateUser().subscribe((apartment) => {
+      if (apartment) {
+        this.apartment = apartment;
+        this.showButtons = true;
+      } else {
+        this.showButtons = false;
+      }
+    });
+    */
+   //Metodo para crear un apartamento
+    this.apartmentService.createApartment(this.apartment).subscribe((createdApartment) => {
+      console.log('Nuevo apartamento creado:', createdApartment);
+      this.apartment = createdApartment;
+    });
   }
 
 

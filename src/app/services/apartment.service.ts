@@ -19,10 +19,15 @@ export class ApartmentService {
     return this.http.get<Apartment[]>(this.apiUrl);
   }
 
+  getApartmentById(id: number): Observable<Apartment> {
+    return this.http.get<Apartment>(`${this.apiUrl}/${id}`);
+  }
+
+  /*
   assignApartmentToUser(apartmentId: number, userId: number): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${apartmentId}/assign`, { userId });
   }
-  
+  */
 
   getApartmentByUser(userId: any): Observable<Apartment> {
     return this.http.get<Apartment>(`${this.apiUrl}/${userId}`);
@@ -39,5 +44,14 @@ export class ApartmentService {
   deleteApartment(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-  
+
+  //Metodo para buscar un apartmento por nombre de apartment
+  getApartmentByName(name: string): Observable<Apartment> {
+    return this.http.get<Apartment>(`${this.apiUrl}/name/${name}`);
+  }
+
+  //Metodo para actulizar un usuario y añadirle un apartmento
+  assignApartmentToUser(apartmentId: number, userId: number): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${apartmentId}/assign`, { userId });
+  }
 }
