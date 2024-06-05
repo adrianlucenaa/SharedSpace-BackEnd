@@ -13,7 +13,8 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule, IonicModule],
 })
 export class Tab1Page implements OnInit {
-  username: string | null = null; // Inicializa como null
+  name: string | null = null; // Inicializa como null
+  surname: string | null = null;
   showLogin: boolean = false;
   items: string[] = [];
   itemCount: number = 20;
@@ -22,11 +23,13 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
     // Recuperar el nombre de usuario del almacenamiento local
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername !== null) {
-      this.username = storedUsername;
+    const storedName = localStorage.getItem('name');
+    const storedSurname = localStorage.getItem('surname');
+    if (storedName !== null) {
+      this.name = storedName;
+      this.surname = storedSurname;
     }
-    console.log(this.username);
+    console.log(this.name);
     this.loadInitialItems();
   }
 

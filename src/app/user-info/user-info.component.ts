@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
   providers: [UserService],
 })
 export class UserInfoComponent implements OnInit {
-  username: string | null = null; // Inicializa como null
+  name: string | null = null; // Inicializa como null
   surname: string | null = null;
   id: number | null = null;
   email: string | null = null;
@@ -31,26 +31,26 @@ export class UserInfoComponent implements OnInit {
 
      ngOnInit() {
       // Recuperar el nombre de usuario del almacenamiento local
-      const storedUsername = localStorage.getItem('username');
+      const storedName = localStorage.getItem('name');
       const storedSurname = localStorage.getItem('surname');
       const storedId = localStorage.getItem('id');
       const storedEmail = localStorage.getItem('email');
       const storedDni = localStorage.getItem('dni');
     
       // Verifica si las claves existen en localStorage
-      console.log('storedUsername:', storedUsername);
+      console.log('storedName:', storedName);
       console.log('storedSurname:', storedSurname);
       console.log('storedId:', storedId);
       console.log('storedEmail:', storedEmail);
       console.log('storedDni:', storedDni);
     
-      this.username = storedUsername ? storedUsername : null;
+      this.name = storedName ? storedName : null;
       this.surname = storedSurname ? storedSurname : null;
       this.id = storedId ? parseInt(storedId, 10) : null;
       this.email = storedEmail ? storedEmail : null;
       this.dni = storedDni ? storedDni : null;
     
-      console.log(this.username, this.surname, this.id, this.email, this.dni);
+      console.log(this.name, this.surname, this.id, this.email, this.dni);
       this.loadInitialItems();
     }
     

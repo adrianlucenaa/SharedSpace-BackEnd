@@ -26,10 +26,11 @@ export class UserService {
     return this.http.post(`${this.apiUrl}`, user, { headers: headers });
   }
 
+  /*
   updateUser(user: User): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/${user.id}`, user);
   }
-
+*/
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
@@ -41,4 +42,12 @@ export class UserService {
   getUsersByName(name: User): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/name/${name}`);
   }
+
+  //Metodo para crear un usuario o actuazlizarlo
+  CreateOrUpdateUser(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, user);
+  }
+ 
+
+
 }

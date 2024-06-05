@@ -34,7 +34,9 @@ export class EdituserComponent implements OnInit {
   loadUserFromLocalStorage() {
     this.user.id = parseInt(localStorage.getItem('id') || '0', 10);
     this.user.email = localStorage.getItem('email') || '';
-    this.user.password = ''; // La contraseña no se guarda en localStorage por seguridad
+    this.user.name = localStorage.getItem('name') || '';
+    this.user.surname = localStorage.getItem('surname') || '';
+    this.user.dni = localStorage.getItem('dni') || '';
   }
 
   async goBack() {
@@ -42,7 +44,7 @@ export class EdituserComponent implements OnInit {
   }
 
   updateUser() {
-    this.userService.updateUser(this.user).subscribe((updatedUser) => {
+    this.userService.CreateOrUpdateUser(this.user).subscribe((updatedUser) => {
       console.log('Usuario actualizado:', updatedUser);
       this.user = updatedUser;
       this.updateLocalStorage();
