@@ -36,7 +36,9 @@ export class EdituserComponent implements OnInit {
     this.user.email = localStorage.getItem('email') || '';
     this.user.name = localStorage.getItem('name') || '';
     this.user.surname = localStorage.getItem('surname') || '';
+    this.user.password = localStorage.getItem('password') || '';
     this.user.dni = localStorage.getItem('dni') || '';
+
   }
 
   async goBack() {
@@ -54,7 +56,10 @@ export class EdituserComponent implements OnInit {
   updateLocalStorage() {
     if (this.user.email) {
       localStorage.setItem('email', this.user.email);
+      
     }
-    // No almacenar la contraseña en localStorage por seguridad
+    if (this.user.password) {
+      localStorage.setItem('password', this.user.password);
+    }
   }
 }
