@@ -17,6 +17,7 @@
     <ion-button size="large">Go {{name}}</ion-button> 
   </ion-card>
 
+  <section style="height: 30%;">
   <ion-card *ngIf="apartmentVisible" (click)="goToRemindersViews()"> <!-- Hacer el card clickeable -->
     <ion-card-header>
       <ion-card-title>Reminder List</ion-card-title>
@@ -33,7 +34,7 @@
       </ion-list>
     </div>
   </ion-card>
-
+</section>
 
   <div *ngIf="!apartmentVisible">
     <br>

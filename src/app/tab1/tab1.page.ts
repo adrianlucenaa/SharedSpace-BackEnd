@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule, IonicModule],
 })
 export class Tab1Page implements OnInit {
-  name: string | null = null; // Inicializa como null
+  name: string | null = null;
   surname: string | null = null;
   showLogin: boolean = false;
   items: string[] = [];
@@ -25,12 +25,20 @@ export class Tab1Page implements OnInit {
     // Recuperar el nombre de usuario del almacenamiento local
     const storedName = localStorage.getItem('name');
     const storedSurname = localStorage.getItem('surname');
-    if (storedName !== null) {
+    if (storedName !== null && storedSurname !== null) {
       this.name = storedName;
       this.surname = storedSurname;
     }
     console.log(this.name);
     this.loadInitialItems();
+
+    // Escuchar los cambios en el local storage
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'name' || event.key === 'surname') {
+        this.name = localStorage.getItem('name');
+        this.surname = localStorage.getItem('surname');
+      }
+    });
   }
 
   goToMoreInfo(event: Event) {
@@ -38,11 +46,11 @@ export class Tab1Page implements OnInit {
     this.router.navigate(['user-info']);
   }
 
-  goToSurveysviews(){
+  goToSurveysviews() {
     this.router.navigate(['survey-views']);
   }
 
-  goToTasksviews(){
+  goToTasksviews() {
     this.router.navigate(['tasks-views']);
   }
 
