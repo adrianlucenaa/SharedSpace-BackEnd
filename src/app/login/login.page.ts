@@ -37,11 +37,12 @@ export class LoginPage  {
           // Si el inicio de sesión fue exitoso, response contendrá el usuario autenticado
           this.authenticatedUser = response;
           console.log('Inicio de sesión exitoso:', this.authenticatedUser);
-          localStorage.setItem('username', this.authenticatedUser.name);
+          localStorage.setItem('name', this.authenticatedUser.name);
           localStorage.setItem('id', this.authenticatedUser.id.toString());
           localStorage.setItem('email', this.authenticatedUser.email);
           localStorage.setItem('dni', this.authenticatedUser.dni);
           localStorage.setItem('surname', this.authenticatedUser.surname);
+          localStorage.setItem('password', this.authenticatedUser.password);
            
         // Utiliza el operador de coalescencia nula para proporcionar un valor predeterminado
         localStorage.setItem('apartmentId', this.authenticatedUser.apartmentId ?? '0');

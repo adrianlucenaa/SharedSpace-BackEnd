@@ -38,7 +38,6 @@ export class EdituserComponent implements OnInit {
     this.user.surname = localStorage.getItem('surname') || '';
     this.user.password = localStorage.getItem('password') || '';
     this.user.dni = localStorage.getItem('dni') || '';
-
   }
 
   async goBack() {
@@ -51,15 +50,15 @@ export class EdituserComponent implements OnInit {
       this.user = updatedUser;
       this.updateLocalStorage();
     });
+    this.router.navigate(['/tabs/tab1']);
   }
 
   updateLocalStorage() {
-    if (this.user.email) {
-      localStorage.setItem('email', this.user.email);
-      
-    }
-    if (this.user.password) {
-      localStorage.setItem('password', this.user.password);
-    }
+    localStorage.setItem('id', this.user.id?.toString() || '0');
+    localStorage.setItem('email', this.user.email || '');
+    localStorage.setItem('name', this.user.name || '');
+    localStorage.setItem('surname', this.user.surname || '');
+    localStorage.setItem('password', this.user.password || '');
+    localStorage.setItem('dni', this.user.dni || '');
   }
 }
