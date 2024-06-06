@@ -6,5 +6,5 @@ export class Apartment{
     address?: string;
     numberowner?: number;
     name?: string;
-    Apartment?: string;
+    
 }

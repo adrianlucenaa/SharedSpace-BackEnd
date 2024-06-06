@@ -11,13 +11,13 @@
     <!-- Aquí muestras la información del apartamento -->
     <img alt="Silhouette of mountains" src="{{apartment.img}}" />
     <ion-card-header>
-      <ion-card-title>{{apartment.name}}</ion-card-title>
-      <ion-card-subtitle>{{apartment.nameowner}}</ion-card-subtitle>
+      <ion-card-title>{{name}}</ion-card-title>
+      <ion-card-subtitle>{{nameowner}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-button size="large" (click)="navigateToApartment()">Go </ion-button> <!-- {{apartament.name}} -->
+    <ion-button size="large">Go {{name}}</ion-button> 
   </ion-card>
 
-  <ion-card style="margin-top: 3%; margin-left: 5%; margin-right: 5%; height: 25%;" (click)="goToRemindersViews()"> <!-- Hacer el card clickeable -->
+  <ion-card *ngIf="apartmentVisible" (click)="goToRemindersViews()"> <!-- Hacer el card clickeable -->
     <ion-card-header>
       <ion-card-title>Reminder List</ion-card-title>
     </ion-card-header>
@@ -41,7 +41,7 @@
     <h3 style="color: black; text-align: center;">Usuario sin apartamento asignado</h3>
     <br>
     <!-- Aquí puedes poner botones o enlaces para acciones como crear o buscar apartamentos -->
-    <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToSearchApartment()">Search Apartment</ion-button>
+    <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" >Search Apartment</ion-button>
     <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToCreateApartment()">Create Apartment</ion-button>
   </div>
 </ion-content>
