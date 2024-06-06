@@ -36,7 +36,7 @@ export class ApartmentComponent  {
   }
 
   saveChanges() {
-    //MLogica que creea el apartamento
+    //Logica que creea el apartamento
     this.ApartmentService.createApartment(this.apartment).subscribe((createdApartment) => {
       console.log('Nuevo apartamento creado:', createdApartment);
       this.apartment = createdApartment;
@@ -45,6 +45,12 @@ export class ApartmentComponent  {
     this.ApartmentService.updateApartment(this.apartment).subscribe((updatedApartment) => {
       console.log('Apartamento actualizado:', updatedApartment);
       this.apartment = updatedApartment;
+    });
+
+    //Logica para buscar un apartmento por nombre de apartment
+    this.ApartmentService.getApartmentByName(this.apartment.name).subscribe((apartment) => {
+      console.log('Apartamento encontrado:', apartment);
+      this.apartment = apartment;
     });
   }
 

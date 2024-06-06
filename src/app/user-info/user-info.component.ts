@@ -36,6 +36,7 @@ export class UserInfoComponent implements OnInit {
       const storedId = localStorage.getItem('id');
       const storedEmail = localStorage.getItem('email');
       const storedDni = localStorage.getItem('dni');
+      
     
       // Verifica si las claves existen en localStorage
       console.log('storedName:', storedName);

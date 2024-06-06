@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApartmentService } from '../services/apartment.service';
 import { HttpClient } from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
+import { Apartment } from '../model/apartment.model';
 
 @Component({
   selector: 'app-search-apartment',
@@ -14,9 +15,19 @@ import {IonicModule} from '@ionic/angular';
 })
 export class SearchApartmentComponent {
 
-  constructor(private router: Router, private apartmentService: ApartmentService, private http: HttpClient) { }
+  constructor(private router: Router, private apartmentService: ApartmentService, private http: HttpClient, private Apartment:Apartment) {}
+    
+  
 
-
+/*
   enterToApartment() {
+    this.apartmentService.getApartmentByName(this.apartment).subscribe((getApartment) => {
+      console.log('Apartamento encontrado:', getApartment);
+      this.apartment = getApartment;
+      
+      this.updateLocalStorage();
+    });
   }
+  */
+  
 }
