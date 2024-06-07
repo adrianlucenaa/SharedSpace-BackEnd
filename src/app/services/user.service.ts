@@ -7,30 +7,19 @@ import { User } from '../model/user.model';
   providedIn: 'root'
 })
 export class UserService {
-
   private apiUrl = 'http://localhost:8081/users';
 
-  constructor(private http: HttpClient) { }
-
-  
+  constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiUrl}`);
   }
 
   registerUser(user: any): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Accept', '*/*');
-
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', '*/*');
     return this.http.post(`${this.apiUrl}`, user, { headers: headers });
   }
 
-  /*
-  updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${user.id}`, user);
-  }
-*/
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
@@ -43,11 +32,7 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/name/${name}`);
   }
 
-  //Metodo para crear un usuario o actuazlizarlo
   CreateOrUpdateUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, user);
   }
- 
-
-
 }

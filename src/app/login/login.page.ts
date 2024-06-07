@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,8 +12,6 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-
-
 export class LoginPage  {
   loginForm = {
     usernameOrEmail: '',
@@ -22,19 +19,16 @@ export class LoginPage  {
   };
   authenticatedUser: any;
 
-  constructor(private http: HttpClient,private router: Router, private UserService:UserService) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   redirectToRegister() {
-    this.router.navigate(['register']); // Redirige a la página de registro
+    this.router.navigate(['register']);
   }
 
-  
   login() {
-
     this.http.post<any>('http://localhost:8081/users/login', this.loginForm)
       .subscribe(
         response => {
-          // Si el inicio de sesión fue exitoso, response contendrá el usuario autenticado
           this.authenticatedUser = response;
           console.log('Inicio de sesión exitoso:', this.authenticatedUser);
           localStorage.setItem('name', this.authenticatedUser.name);
@@ -43,22 +37,13 @@ export class LoginPage  {
           localStorage.setItem('dni', this.authenticatedUser.dni);
           localStorage.setItem('surname', this.authenticatedUser.surname);
           localStorage.setItem('password', this.authenticatedUser.password);
-           
-        // Utiliza el operador de coalescencia nula para proporcionar un valor predeterminado
-        localStorage.setItem('apartmentId', this.authenticatedUser.apartmentId ?? '0');
-
+          localStorage.setItem('apartmentId', this.authenticatedUser.apartment?.id?.toString() ?? 'null');
+          
           this.router.navigate(['tabs/tab1']);
-
-          // Aquí puedes redirigir al usuario a otra página o realizar otras acciones necesarias
         },
         error => {
-          // Si hubo un error durante el inicio de sesión
           console.error('Error en inicio de sesión:', error);
-          // Aquí puedes mostrar un mensaje de error al usuario o realizar otras acciones necesarias
         }
       );
   }
-
-  
-
 }
