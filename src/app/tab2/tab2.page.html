@@ -11,10 +11,10 @@
     <!-- Aquí muestras la información del apartamento -->
     <img src="../../assets/icon/icon.png" />
     <ion-card-header>
-      <ion-card-title>{{apartment.name}}</ion-card-title>
-      <ion-card-subtitle>{{apartment.nameowner}}</ion-card-subtitle>
+      <ion-card-title>{{apartment?.name}}</ion-card-title>
+      <ion-card-subtitle>{{apartment?.nameowner}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-button size="large">Go {{apartment.name}}</ion-button> 
+    <ion-button size="large">Go {{apartment?.name}}</ion-button> 
   </ion-card>
 
   <section style="height: 30%;">
@@ -42,7 +42,7 @@
     <h3 style="color: black; text-align: center;">Usuario sin apartamento asignado</h3>
     <br>
     <!-- Aquí puedes poner botones o enlaces para acciones como crear o buscar apartamentos -->
-    <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToSearchApartment() >Search Apartment</ion-button>
+    <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToSearchApartment()">Search Apartment</ion-button>
     <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToCreateApartment()">Create Apartment</ion-button>
   </div>
 </ion-content>
