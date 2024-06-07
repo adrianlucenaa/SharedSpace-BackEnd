@@ -8,7 +8,6 @@
 
 <ion-content [fullscreen]="true" class="content-background">
   <ion-card *ngIf="apartmentVisible">
-    <!-- Aquí muestras la información del apartamento -->
     <img src="../../assets/icon/icon.png" />
     <ion-card-header>
       <ion-card-title>{{apartment?.name}}</ion-card-title>
@@ -17,31 +16,29 @@
     <ion-button size="large">Go {{apartment?.name}}</ion-button> 
   </ion-card>
 
-  <section style="height: 30%;">
-  <ion-card *ngIf="apartmentVisible" (click)="goToRemindersViews()"> <!-- Hacer el card clickeable -->
-    <ion-card-header>
-      <ion-card-title>Reminder List</ion-card-title>
-    </ion-card-header>
-    <div class="scroll-container">
-      <ion-list>
-        <ion-item *ngFor="let item of items">
-          {{item}}
-        </ion-item>
-        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
-          <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more reminders...">
-          </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
-      </ion-list>
-    </div>
-  </ion-card>
-</section>
+  <section style="height: 30%;" *ngIf="apartmentVisible">
+    <ion-card (click)="goToRemindersViews()">
+      <ion-card-header>
+        <ion-card-title>Reminder List</ion-card-title>
+      </ion-card-header>
+      <div class="scroll-container">
+        <ion-list>
+          <ion-item *ngFor="let item of items">
+            {{item}}
+          </ion-item>
+          <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
+            <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more reminders...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </ion-list>
+      </div>
+    </ion-card>
+  </section>
 
   <div *ngIf="!apartmentVisible">
     <br>
-    <!-- Aquí puedes mostrar un mensaje o botones para crear o buscar apartamentos -->
     <h3 style="color: black; text-align: center;">Usuario sin apartamento asignado</h3>
     <br>
-    <!-- Aquí puedes poner botones o enlaces para acciones como crear o buscar apartamentos -->
     <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToSearchApartment()">Search Apartment</ion-button>
     <ion-button size="medium" expand="block" style="margin-left: 20px; margin-right: 20px;" (click)="goToCreateApartment()">Create Apartment</ion-button>
   </div>

@@ -1,5 +1,6 @@
 .content-background {
   --ion-background-color: aliceblue;
+  max-height: 80% !important;
 }
 
 .datetime-margin {
@@ -11,9 +12,16 @@
 
 }
 
+.botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
 .scroll-container {
   max-height: 70%; /* Altura máxima del contenedor con scroll */
-  overflow-y: auto; /* Habilitar scroll vertical */
+  overflow-y: none; /* Habilitar scroll vertical */
 }
 
 .datetime-time{
@@ -29,7 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 80%;
 }
 
 .stacked-content {
