@@ -41,12 +41,7 @@ export class Tab2Page implements OnInit {
       const userId = users[0]?.id ?? null; // Utiliza el operador de fusión nula (??) para proporcionar un valor predeterminado de null si userId es undefined
       this.apartmentId = userId;
       if (this.apartmentId) {
-        this.apartmentService.getApartmentById(this.apartmentId).pipe(
-          catchError(error => {
-            console.error('Error al obtener apartamento', error);
-            return of(null);
-          })
-        ).subscribe(apartment => {
+        this.apartmentService.getApartmentById(this.apartmentId).subscribe(apartment => {
           if (apartment) {
             this.apartment = apartment;
             this.apartmentVisible = true;
@@ -56,6 +51,9 @@ export class Tab2Page implements OnInit {
             console.log("El usuario no tiene un apartamento asignado.");
             this.apartmentVisible = false;
           }
+        }, error => {
+          console.error('Error al obtener apartamento', error);
+          this.apartmentVisible = false;
         });
       } else {
         console.log("No se encontró apartmentId en localStorage.");

@@ -6,6 +6,6 @@ export class User {
     email?: string;
     dni?: string;
     password?: string;
-    // Apartment?: string;   
+    apartment?: string;   
     
 }
