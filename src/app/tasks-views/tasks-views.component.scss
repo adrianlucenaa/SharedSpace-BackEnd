@@ -1,12 +1,38 @@
 .content-background {
-    --ion-background-color: aliceblue;   
-  }
+  --ion-background-color: #f0f0f0; /* Cambiado el color de fondo para mejorar el contraste */
+}
 
-ion-card{
-    border-radius: 10px;
-    }
+ion-card {
+  border-radius: 20px; /* Aumentado el radio de borde para un aspecto más suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadida una sombra suave para un efecto elevado */
+  background: #fff; /* Cambiado el fondo a blanco para el card */
+}
 
-    scroll-container {
-        max-height: 70%; /* Altura máxima del contenedor con scroll */
-        overflow-y: auto; /* Habilitar scroll vertical */
-      }
+.scroll-container {
+  max-height: 80%; /* Aumentada la altura máxima del contenedor con scroll */
+  overflow-y: auto; /* Habilitar el scroll vertical */
+}
+
+ion-list {
+  padding: 0 20px; /* Añadido padding a la lista para un mejor espaciado */
+}
+
+ion-item {
+  border-radius: 10px; /* Bordes redondeados para los ítems */
+  margin-bottom: 10px; /* Espacio entre los ítems */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para los ítems */
+  background: #fff; /* Fondo blanco para los ítems */
+}
+
+ion-button {
+  --border-radius: 20px; /* Aumentado el radio de borde para botones más redondeados */
+  --background: #4c5caf; /* Color de fondo verde para los botones */
+  --color: #fff; /* Color de texto blanco para los botones */
+  --padding-start: 20px; /* Añadido padding al inicio del botón */
+  --padding-end: 20px; /* Añadido padding al final del botón */
+  margin-top: 20px; /* Espacio entre los botones */
+}
+
+ion-button:hover {
+  --background: #388E3C; /* Cambiado el color de fondo a un tono más oscuro cuando se pasa el ratón por encima */
+}
