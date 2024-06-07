@@ -9,12 +9,12 @@
 <ion-content [fullscreen]="true" class="content-background">
   <ion-card *ngIf="apartmentVisible">
     <!-- Aquí muestras la información del apartamento -->
-    <img alt="Silhouette of mountains" src="{{apartment.img}}" />
+    <img src="../../assets/icon/icon.png" />
     <ion-card-header>
-      <ion-card-title>{{name}}</ion-card-title>
-      <ion-card-subtitle>{{nameowner}}</ion-card-subtitle>
+      <ion-card-title>{{apartment.name}}</ion-card-title>
+      <ion-card-subtitle>{{apartment.nameowner}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-button size="large">Go {{name}}</ion-button> 
+    <ion-button size="large">Go {{apartment.name}}</ion-button> 
   </ion-card>
 
   <section style="height: 30%;">
