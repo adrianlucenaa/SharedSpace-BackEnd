@@ -3,4 +3,5 @@ export class Reminder{
     description?: string;
     date?: Date;
     apartmentId?: number;
+
 }

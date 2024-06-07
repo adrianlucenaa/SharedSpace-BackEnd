@@ -1,43 +1,55 @@
 .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 56px); /* Subtracting the height of the header */
-    background-color: white; /* Hace que el fondo sea blanco */
-    
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 56px); /* Subtracting the height of the header */
+  background-color: #f9f9f9; /* Light grey background for a subtle contrast */
+  padding: 20px; /* Padding to prevent content from touching the edges */
+}
 
-  .form-margin {
-    margin: 0 20px; /* Ajusta el margen horizontal del formulario según sea necesario */
-    max-width: 400px; /* Opcional: establece el ancho máximo del formulario */
-  }
+.form-margin {
+  margin: 0 20px; /* Ajusta el margen horizontal del formulario según sea necesario */
+  max-width: 400px; /* Opcional: establece el ancho máximo del formulario */
+  width: 100%; /* Ensures the form takes full width up to the max-width */
+  background: white; /* White background for the form */
+  padding: 5px; /* Reduced padding inside the form for better spacing */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a raised effect */
+}
 
-  .rounded-item {
-    border-radius: 10px; /* Añade bordes redondos a los elementos ion-item */
-    margin-bottom: 5px; /* Reducir la separación entre elementos */
+.rounded-item {
+  border-radius: 10px; /* Añade bordes redondos a los elementos ion-item */
+  margin-bottom: 10px; /* Slightly reduce the separation between items */
+  background: #fff; /* White background for form items */
+  padding: 8px; /* Reduced padding for better spacing inside items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for individual items */
+}
 
-  }
+ion-checkbox {
+  --size: 20px;
+  --checkbox-background-checked: #37b6ff; /* Blue checked background */
+  margin-right: 10px; /* Space between checkbox and label */
+}
 
-  ion-checkbox {
-    --size: 20px;
-    --checkbox-background-checked: #37b6ff;
-  }
-  
-  ion-checkbox::part(container) {
-    border-radius: 6px;
-    border: 2px solid #37b6ff;
-    
-  }
-  .label-description {
-    height: auto; /* Ajusta la altura automáticamente */
-  }
-  
-  ion-textarea {
-    height: auto; /* Ajusta la altura automáticamente */
-    min-height: 100px; /* Altura mínima del ion-textarea */
-    max-height: none; /* Elimina la altura máxima */
-  }
-  
- 
+ion-checkbox::part(container) {
+  border-radius: 6px;
+  border: 2px solid #37b6ff; /* Blue border */
+}
+
+.label-description {
+  height: auto; /* Ajusta la altura automáticamente */
+  font-weight: bold;
+  font-size: 30px; /* Slightly smaller font for description */
+  color: #666; /* Grey color for description text */
+}
+
+ion-textarea {
+  height: auto;/* Ajusta la altura automáticamente */
+  min-height: 50px; /* Reduced minimum height of the ion-textarea */
+  max-height: none; /* Elimina la altura máxima */
+  padding: 8px; /* Reduced padding inside the textarea for better text spacing */
+  border: 1px solid #ddd; /* Light border for better separation */
+  border-radius: 10px; /* Rounded corners */
+  background: #fafafa; /* Slightly darker background for textarea */
+}

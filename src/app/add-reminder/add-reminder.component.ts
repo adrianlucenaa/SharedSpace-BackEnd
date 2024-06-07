@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class AddReminderComponent  {
   description: string = '';
-  dateTime: string = '';
+  date: Date = new Date();
   constructor(private router: Router, private reminderService: ReminderService) { }
 
   GoToReminderViews(){
@@ -24,10 +24,14 @@ export class AddReminderComponent  {
 
 }
 
+goBack() {
+  this.router.navigate(['reminder-views']);
+}
+
 createReminder() {
   const newReminder: Reminder = {
     description: this.description,
-    date: new Date(this.dateTime)
+    date: new Date(this.date)
   };
 
   this.reminderService.createReminder(newReminder).subscribe(
