@@ -32,7 +32,7 @@ export const routes: Routes = [
   {path: 'reminder-views', component: ReminderViewsComponent},
   {path: 'add-survey', component: AddSurveyComponent},
   {path: 'survey-views', component: SurveysViewsComponent},
-  {path: 'SearchApartmentComponent', component: SearchApartmentComponent},
+  {path: 'Search-apartment', component: SearchApartmentComponent},
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.routes').then(m => m.routes)

@@ -1,3 +1,5 @@
+import { Apartment } from "./apartment.model";
+
 export class User {
 
     id?: number;
@@ -6,6 +8,6 @@ export class User {
     email?: string;
     dni?: string;
     password?: string;
-    apartment?: string;   
+    apartment?: Apartment;   
     
 }

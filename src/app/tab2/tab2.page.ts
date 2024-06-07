@@ -6,6 +6,8 @@ import { ApartmentService } from '../services/apartment.service';
 import { Router } from '@angular/router'; 
 import { catchError, of } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { User } from '../model/user.model';
+import { Apartment } from '../model/apartment.model';
 
 @Component({
   selector: 'app-tab2',
@@ -14,10 +16,9 @@ import { UserService } from '../services/user.service';
   standalone: true,
   imports: [IonicModule, ApartmentComponent, CommonModule],
 })
-
 export class Tab2Page implements OnInit {
   apartmentId: number | null = null;
-  adress: string | null = null; // Inicializa como null
+  adress: string | null = null;
   numberowner: number | null = null;
   owneremail: string | null = null;
   nameowner: string | null = null;
@@ -25,25 +26,26 @@ export class Tab2Page implements OnInit {
   img: string | null = null;
 
   apartmentVisible: boolean = false;
-  showButtons: boolean = false; // Variable para controlar la visibilidad de los botones
-  apartment: any;
+  showButtons: boolean = false;
+  apartment: Apartment | null = null;
   items: string[] = [];
   itemCount: number = 20;
 
   constructor(private router: Router, private apartmentService: ApartmentService, private UserService: UserService) {}
 
-
- 
-  
-
   ngOnInit(): void {
     this.UserService.getUsers().subscribe(users => {
-      const userId = users[0]?.id ?? null; // Utiliza el operador de fusión nula (??) para proporcionar un valor predeterminado de null si userId es undefined
+      const userId = users[0]?.id ?? null;
       this.apartmentId = userId;
       if (this.apartmentId) {
         this.apartmentService.getApartmentById(this.apartmentId).subscribe(apartment => {
           if (apartment) {
             this.apartment = apartment;
+            this.adress = this.apartment?.address ?? null;
+            this.numberowner = this.apartment?.numberowner ?? null;
+            this.owneremail = this.apartment?.owneremail ?? null;
+            this.nameowner = this.apartment?.nameowner ?? null;
+            this.name = this.apartment?.name ?? null;
             this.apartmentVisible = true;
             console.log(this.name, this.adress, this.apartment, this.owneremail, this.numberowner, this.nameowner);
             this.loadInitialItems();
@@ -62,21 +64,10 @@ export class Tab2Page implements OnInit {
     });
   }
 
+  goToCreateApartment() {
+    this.router.navigate(['addapartment']);
+  }
 
-
-//Boton para crear apartamento  
-goToCreateApartment() {
-  this.router.navigate(['addapartment']);
-}
-
-// goToMoreInfo(event: Event) {
-//   event.stopPropagation(); // Para evitar que se dispare el click del card
-//   this.router.navigate(['user-info']);
-// }
-
-
-
-//Boton para buscar apartamento
   navigateToApartment() {
     this.apartmentVisible = !this.apartmentVisible;
   }
@@ -90,6 +81,10 @@ goToCreateApartment() {
   goToRemindersViews(){
     this.router.navigate(['reminder-views']);
   }
+  
+  goToSearchApartment(){
+    this.router.navigate(['search-apartment']);
+  }
 
   loadMoreItems(event: CustomEvent) {
     setTimeout(() => {
@@ -98,13 +93,9 @@ goToCreateApartment() {
       }
       (event.target as HTMLIonInfiniteScrollElement).complete();
 
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll if necessary
       if (this.items.length >= 100) {
         (event.target as HTMLIonInfiniteScrollElement).disabled = true;
       }
     }, 500);
   }
-
-
 }
