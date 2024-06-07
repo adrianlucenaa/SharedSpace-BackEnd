@@ -9,6 +9,7 @@ import { Task } from '../model/task.model';
 export class TaskService {
 
   private apiUrl = 'http://localhost:8081/tasks';
+  router: any;
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +18,8 @@ export class TaskService {
     return this.http.get<Task[]>(`${this.apiUrl}`);
   }
 
-  getTaskByApartmentId(apartmentId: any): Observable<Task> {
-    return this.http.get<Task>(`${this.apiUrl}/${apartmentId}`);
+  getTasksByApartmentId(apartmentId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/tasks?apartmentId=${apartmentId}`);
   }
 
   createTask(task: Task): Observable<Task> {
@@ -28,5 +29,8 @@ export class TaskService {
   deleteTask(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
+  goToTasks() {
+    this.router.navigate(['addTasks']);
+  }
+  
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-tasks-views',
@@ -11,40 +13,47 @@ import { Router } from '@angular/router';
   imports: [CommonModule, IonicModule],
 })
 export class TasksViewsComponent {
-  items: string[] = [];
-  itemCount: number = 20;
 
-  constructor( private router: Router) { }
-
+  Task: any[] = [];
+  apartmentId: number = 0; 
   
+  
+
+  constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.apartmentId = +params['apartmentId']; // Asegúrate de que la ruta contenga 'apartmentId'
+      this.loadTasks();
+    });
+  }
 
   goToTasks() {
     this.router.navigate(['addTasks']);
   }
 
-  deleteTask() {
-    
+  getTasksByApartmentId(id: number): void {
+    this.taskService.getTasksByApartmentId(id).subscribe(
+      tasks => {
+        this.Task = tasks;
+      },
+      error => {
+        console.error('Error fetching tasks:', error);
+      }
+    );
   }
 
-  loadInitialItems() {
-    for (let i = 0; i < this.itemCount; i++) {
-      this.items.push(`Item ${i + 1}`);
-    }
+
+  loadTasks() {
+    this.taskService.getTasksByApartmentId(this.apartmentId).subscribe(tasks => {
+      this.Task = tasks;
+    });
   }
 
-  loadMoreItems(event: CustomEvent) {
-    setTimeout(() => {
-      for (let i = 0; i < this.itemCount; i++) {
-        this.items.push(`Item ${this.items.length + 1}`);
-      }
-      (event.target as HTMLIonInfiniteScrollElement).complete();
-
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll if necessary
-      if (this.items.length >= 100) {
-        (event.target as HTMLIonInfiniteScrollElement).disabled = true;
-      }
-    }, 500);
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe(() => {
+      this.loadTasks();
+    });
   }
 
 }

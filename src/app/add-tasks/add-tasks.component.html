@@ -1,9 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button (click)="goToTasksviews()"></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Create Task</ion-title>
+    <ion-title>Create Task</ion-title><ion-buttons slot="start">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -38,6 +39,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
+      <!-- <ion-button expand="block" color="primary" type="button" (click)="goBack()">Back</ion-button> -->
       <ion-button expand="block" color="primary" type="submit">Create</ion-button>
     </form>
   </div>
