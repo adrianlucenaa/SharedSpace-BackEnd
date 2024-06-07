@@ -15,7 +15,13 @@ import { Apartment } from '../model/apartment.model';
 })
 export class SearchApartmentComponent {
 
-  constructor(private router: Router, private apartmentService: ApartmentService, private http: HttpClient, private Apartment:Apartment) {}
+  apartment: Apartment | null = null;
+
+  constructor(
+    private router: Router,
+    private apartmentService: ApartmentService,
+    private http: HttpClient
+  ) {}
     
   
 

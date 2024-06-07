@@ -11,6 +11,7 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
+  providers: [ApartmentService, UserService],
   imports: [CommonModule, IonicModule]
 })
 export class Tab2Page implements OnInit {
@@ -50,7 +51,7 @@ export class Tab2Page implements OnInit {
   }
 
   goToSearchApartment() {
-    this.router.navigate(['search-apartment']);
+    this.router.navigate(['Search-apartment']);
   }
 
   loadInitialItems() {
