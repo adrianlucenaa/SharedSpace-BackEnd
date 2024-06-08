@@ -8,32 +8,15 @@
 
 <ion-content [fullscreen]="true" class="content-background">
   <ion-card *ngIf="apartmentVisible">
-    <img src="../../assets/icon/icon.png" />
+    <img src="../../assets/images/loguete.png"/>
     <ion-card-header>
       <ion-card-title>{{apartment?.name}}</ion-card-title>
       <ion-card-subtitle>{{apartment?.nameowner}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-button size="large">Go {{apartment?.name}}</ion-button> 
+    <ion-button size="large" (click)="goToApartmentInfo()">Go {{apartment?.name}}</ion-button> 
   </ion-card>
 
-  <section style="height: 30%;" *ngIf="apartmentVisible">
-    <ion-card (click)="goToRemindersViews()">
-      <ion-card-header>
-        <ion-card-title>Reminder List</ion-card-title>
-      </ion-card-header>
-      <div class="scroll-container">
-        <ion-list>
-          <ion-item *ngFor="let item of items">
-            {{item}}
-          </ion-item>
-          <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
-            <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more reminders...">
-            </ion-infinite-scroll-content>
-          </ion-infinite-scroll>
-        </ion-list>
-      </div>
-    </ion-card>
-  </section>
+  
 
   <div *ngIf="!apartmentVisible">
     <br>

@@ -48,7 +48,7 @@ export class Tab3Page {
         {
           text: 'Eliminar',
           handler: () => {
-            this.UserService.deleteUser(this.user).subscribe((deleteduser) => {
+            this.UserService.deleteUser(this.user).subscribe(() => {
               console.log('Cuenta eliminada exitosamente');
               this.router.navigate(['login']);// Lógica adicional después de eliminar la cuenta
             });

@@ -15,7 +15,7 @@ import { ReminderViewsComponent } from './reminder-views/reminder-views.componen
 import { AddSurveyComponent } from './add-survey/add-survey.component';
 import { SurveysViewsComponent } from  './surveys-views/surveys-views.component';
 import { SearchApartmentComponent } from './search-apartment/search-apartment.component';
-
+import { ApartmentInfoComponent } from './apartment-info/apartment-info.component';
 
 
 export const routes: Routes = [
@@ -33,6 +33,7 @@ export const routes: Routes = [
   {path: 'add-survey', component: AddSurveyComponent},
   {path: 'survey-views', component: SurveysViewsComponent},
   {path: 'Search-apartment', component: SearchApartmentComponent},
+  {path: 'apartment-info', component: ApartmentInfoComponent},
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.routes').then(m => m.routes)
