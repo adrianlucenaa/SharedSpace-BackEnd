@@ -46,6 +46,10 @@ export class Tab2Page implements OnInit {
     }
   }
 
+  goToApartmentInfo(){
+    this.router.navigate(['apartment-info']);
+  }
+
   goToCreateApartment() {
     this.router.navigate(['addapartment']);
   }
@@ -60,18 +64,7 @@ export class Tab2Page implements OnInit {
     }
   }
 
-  loadMoreItems(event: CustomEvent) {
-    setTimeout(() => {
-      for (let i = 0; i < this.itemCount; i++) {
-        this.items.push(`Item ${this.items.length + 1}`);
-      }
-      (event.target as HTMLIonInfiniteScrollElement).complete();
-
-      if (this.items.length >= 100) {
-        (event.target as HTMLIonInfiniteScrollElement).disabled = true;
-      }
-    }, 500);
-  }
+ 
 
   goToRemindersViews() {
     this.router.navigate(['reminder-views']);

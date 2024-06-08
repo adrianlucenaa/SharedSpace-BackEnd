@@ -29,8 +29,7 @@ export class TaskService {
   deleteTask(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-  goToTasks() {
-    this.router.navigate(['addTasks']);
-  }
+
+  
   
 }

@@ -10,20 +10,20 @@
 <ion-content>
   <div class="content-wrapper">
     <img src="../../assets/images/apartamentorp.png" alt="">
-    <form class="ion-padding form-margin" >
+    <form class="ion-padding form-margin" (ngSubmit)="createApartment()">
       <ion-grid class="ion-no-padding">
         <ion-row>
           <ion-col size="12" size-md="6" class="ion-no-padding">
             <ion-item lines="none" class="rounded-item">
               <ion-label position="stacked">Address</ion-label>
-              <ion-input type="text"  name="floating_apartment_address" [(ngModel)]="apartment.address" required></ion-input>
+              <ion-input type="text" [(ngModel)]="apartment.address" name="floating_apartment_address" required></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col size="12" size-md="6" class="ion-no-padding">
             <ion-item lines="none" class="rounded-item">
               <ion-label position="stacked">Owner Number (123456789)</ion-label>
-              <ion-input type="number" pattern="[0-9]{9}" name="floating_apartment_owner_number" [(ngModel)]="apartment.numberowner" required></ion-input>
+              <ion-input type="number" [(ngModel)]="apartment.numberowner" name="floating_apartment_owner_number" required></ion-input>
           </ion-item>
           </ion-col>
         </ion-row>
@@ -32,22 +32,22 @@
           <ion-col size="12" size-md="6" class="ion-no-padding">
             <ion-item lines="none" class="rounded-item">
               <ion-label position="stacked">Owner Name</ion-label>
-              <ion-input type="text" name="floating_apartment_owner_name"   [(ngModel)]="apartment.nameowner" required></ion-input>
+              <ion-input type="text" [(ngModel)]="apartment.nameowner" name="floating_apartment_owner_name" required></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
       <ion-item lines="none" class="rounded-item">
         <ion-label position="stacked">Gmail Owner</ion-label>
-        <ion-input type="email" name="floating_apartment_owner_email" [(ngModel)]="apartment.owneremail" required></ion-input>
+        <ion-input type="email" [(ngModel)]="apartment.owneremail" name="floating_apartment_owner_email" required></ion-input>
       </ion-item>
 
       <ion-item lines="none" class="rounded-item">
         <ion-label position="stacked">Apartment Name</ion-label>
-        <ion-input type="text" name="floating_apartment_name" [(ngModel)]="apartment.name" required></ion-input>
+        <ion-input type="text" [(ngModel)]="apartment.name" name="floating_apartment_name" required></ion-input>
       </ion-item>
 
-      <ion-button expand="block" color="primary" type="submit" (click)="createApartment()">Submit</ion-button>
+      <ion-button expand="block" color="primary" type="submit">Submit</ion-button>
     </form>
   </div>
 </ion-content>

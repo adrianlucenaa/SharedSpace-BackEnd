@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApartmentService } from '../services/apartment.service';
+import { UserService } from '../services/user.service';
 import { Apartment } from '../model/apartment.model';
+import { User } from '../model/user.model';
 
 @Component({
   selector: 'app-addapartment',
@@ -12,57 +14,52 @@ import { Apartment } from '../model/apartment.model';
   styleUrls: ['./addapartment.component.scss'],
   standalone: true,
   imports: [CommonModule, IonicModule, FormsModule],
-  providers: [ApartmentService]
+  providers: [ApartmentService, UserService]
 })
-export class AddapartmentComponent  {
+export class AddapartmentComponent {
+  apartment: Apartment = new Apartment();
 
-  apartmentVisible: boolean = false;
-  
+  constructor(
+    private apartmentService: ApartmentService,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
-  apartment: Apartment = {
-    address: '',
-    numberowner: 0, 
-    nameowner: '',
-    owneremail: '',
-    name: ''
-  };
-
-  /*ngOnInit(): void {
-    // Asignar un ID por defecto
-   this.apartment.id = 0; //Puedes asignar cualquier valor que desees como ID por defecto
-  }*/
-  ngOnInit() {
-    // // Recuperar los parametros de apartamento del almacenamiento local
-    // const storedAddress = localStorage.getItem('address');
-    // const storedNumberowner = localStorage.getItem('numberowner');
-    // const storedNameowner = localStorage.getItem('nameowner');
-    // const storedOwneremail = localStorage.getItem('owneremail');
-    // const storedName = localStorage.getItem('name');
-
-    // // Verifica si las claves existen en localStorage
-    // console.log('storedAddress:', storedAddress);
-    // console.log('storedNumberowner:', storedNumberowner);
-    // console.log('storedNameowner:', storedNameowner);
-    // console.log('storedOwneremail:', storedOwneremail);
-    // console.log('storedName:', storedName);
-
- 
-
-    // console.log(this.apartment);
-
-
-  }
-
-  constructor(private apartmentService: ApartmentService, private router: Router) { }
-
- //Logica para crear un apartamento
   createApartment() {
-    this.apartmentService.createApartment(this.apartment).subscribe((createdApartment) => {
-      console.log('Nuevo apartamento creado:', createdApartment);
-      this.apartment = createdApartment;
-    });
-    this.router.navigate(['/tabs/tab2']);
-  
+    this.apartmentService.createApartment(this.apartment).subscribe(
+      (createdApartment) => {
+        console.log('Apartamento creado exitosamente:', createdApartment);
+        this.updateUserWithApartment(createdApartment);
+      },
+      (error) => {
+        console.error('Error al crear el apartamento:', error);
+      }
+    );
   }
 
+  updateUserWithApartment(apartment: Apartment) {
+    const userId = parseInt(localStorage.getItem('id')!, 10);
+    this.userService.getUserById(userId).subscribe(
+      (user) => {
+        if (user) {
+          user.apartment = apartment;
+          this.userService.CreateOrUpdateUser(user).subscribe(
+            (CreateOrUpdateUser) => {
+              console.log('Usuario actualizado exitosamente:', CreateOrUpdateUser);
+              localStorage.setItem('apartmentId', apartment.id!.toString());
+              this.router.navigate(['tabs/tab2']);
+            },
+            (error) => {
+              console.error('Error al actualizar usuario:', error);
+            }
+          );
+        } else {
+          console.error('Usuario no encontrado.');
+        }
+      },
+      (error) => {
+        console.error('Error al obtener usuario:', error);
+      }
+    );
+  }
 }

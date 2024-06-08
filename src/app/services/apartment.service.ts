@@ -31,11 +31,12 @@ export class ApartmentService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  getApartmentByName(name: string): Observable<Apartment> {
-    return this.http.get<Apartment>(`${this.apiUrl}/name/${name}`);
+  getApartmentByName(name: string): Observable<Apartment[]> {
+    return this.http.get<Apartment[]>(`${this.apiUrl}/name/${name}`);
   }
 
   assignApartmentToUser(apartmentId: number, userId: number): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${apartmentId}/assign`, { userId });
+    const body = { apartmentId, userId }; // Cuerpo de la solicitud HTTP
+    return this.http.put<any>(`${this.apiUrl}/assign`, body);
   }
 }

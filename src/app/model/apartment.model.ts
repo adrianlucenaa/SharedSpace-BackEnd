@@ -6,5 +6,6 @@ export class Apartment{
     address?: string;
     numberowner?: number;
     name?: string;
+    tasks?: Task[];
     
 }
