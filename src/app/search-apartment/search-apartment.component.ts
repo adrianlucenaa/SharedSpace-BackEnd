@@ -4,15 +4,16 @@ import { Router } from '@angular/router';
 import { ApartmentService } from '../services/apartment.service';
 import { HttpClient } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms'; // Asegúrate de importar FormsModule
+import { FormsModule } from '@angular/forms';
 import { Apartment } from '../model/apartment.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-search-apartment',
   templateUrl: './search-apartment.component.html',
   styleUrls: ['./search-apartment.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule], // Añadir FormsModule aquí
+  imports: [IonicModule, CommonModule, FormsModule],
 })
 export class SearchApartmentComponent {
   apartmentName: string = '';
@@ -20,17 +21,19 @@ export class SearchApartmentComponent {
 
   constructor(
     private router: Router,
-    private apartmentService: ApartmentService
+    private apartmentService: ApartmentService,
+    private userService: UserService,
+    private http: HttpClient
   ) {}
 
   searchApartment() {
     this.apartmentService.getApartmentByName(this.apartmentName).subscribe(
-      (apartment) => {
-        if (apartment) {
-          console.log('Apartamento encontrado:', apartment);
-          this.apartment = apartment;
-          if (this.apartment.id !== undefined) {
-            this.assignApartmentToUser(this.apartment.id);
+      (apartments) => {
+        if (apartments && apartments.length > 0) {
+          console.log('Apartamento encontrado:', apartments[0]);
+          this.apartment = apartments[0];
+          if (this.apartment && this.apartment.id !== undefined) {
+            this.editUser(this.apartment);
           } else {
             console.error('El ID del apartamento es undefined.');
           }
@@ -40,25 +43,39 @@ export class SearchApartmentComponent {
       },
       (error) => {
         console.error('Error al buscar apartamento:', error);
-        // Aquí puedes mostrar un mensaje de error al usuario si lo deseas
       }
     );
   }
 
-  assignApartmentToUser(apartmentId: number) {
+  editUser(apartment: Apartment) {
     const userId = parseInt(localStorage.getItem('id')!, 10);
-    this.apartmentService.assignApartmentToUser(apartmentId, userId).subscribe(
-      (response) => {
-        console.log('Apartamento asignado exitosamente:', response);
-        // Actualizar localStorage con el nuevo apartmentId
-        localStorage.setItem('apartmentId', apartmentId.toString());
-        // Redirigir a otra página si es necesario
-        this.router.navigate(['tabs/tab2']);
+    this.userService.getUserById(userId).subscribe(
+      (user) => {
+        if (user) {
+          user.apartment = apartment; // Asigna el objeto completo del apartamento
+          this.userService.CreateOrUpdateUser(user).subscribe(
+            (response) => {
+              console.log('Usuario actualizado exitosamente:', response);
+              if (apartment.id !== undefined) {
+                // Actualizar localStorage con el nuevo apartmentId
+                localStorage.setItem('apartmentId', apartment.id.toString());
+                // Recargar la página
+                location.reload();
+              } else {
+                console.error('El ID del apartamento es undefined.');
+              }
+            },
+            (error) => {
+              console.error('Error al actualizar usuario:', error);
+            }
+          );
+        } else {
+          console.error('Usuario no encontrado.');
+        }
       },
       (error) => {
-        console.error('Error al asignar apartamento:', error);
+        console.error('Error al obtener usuario:', error);
       }
     );
   }
 }
-

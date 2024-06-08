@@ -35,4 +35,13 @@ export class UserService {
   CreateOrUpdateUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, user);
   }
+
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${id}`);
+  }
+
+  // Método para obtener el usuario actualmente autenticado junto con su apartamento
+  getCurrentUserWithApartment(): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/current-with-apartment`);
+  }
 }
