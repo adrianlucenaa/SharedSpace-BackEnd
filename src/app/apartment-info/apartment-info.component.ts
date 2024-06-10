@@ -17,7 +17,8 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class ApartmentInfoComponent implements OnInit {
-  name: string | null = null; // Inicializa como null
+
+  name: string | null = null; 
   address: string | null = null;
   id: number | null = null;
   owneremail: string | null = null;
