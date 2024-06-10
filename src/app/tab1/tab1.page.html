@@ -9,10 +9,11 @@
 <ion-content [fullscreen]="true" class="content-background">
   <ion-card style="margin-top: 5%; margin-left: 5%; margin-right: 5%;"> <!-- Agregar margen superior para separar del header -->
     <div style="display: flex; align-items: center;">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" style="width: 150px; height: auto; object-fit: cover; margin-right: 10px; border-radius: 10px;" /> <!-- Recortar la imagen y agregar margen derecho -->
+      <img alt="Silhouette of mountains" src="../../assets/images/loguete.png" style="width: 150px; height: auto; object-fit: cover; margin-right: 10px; border-radius: 10px;" /> <!-- Recortar la imagen y agregar margen derecho -->
       <div style="flex: 1;">
         <ion-card-header>
           <ion-card-title>{{name}}</ion-card-title>
+          <ion-card-title>{{surname}}</ion-card-title>
           <ion-button fill="clear" (click)="goToMoreInfo($event)">More info</ion-button>
         </ion-card-header>
       </div>
@@ -20,11 +21,13 @@
   </ion-card>
 
   <section class="botones">
-    <ion-button  (click)="goToSurveysviews()"> <!-- Hacer el card clickeable -->
+    
+    <!-- <ion-button  (click)="goToSurveysviews()"> 
       <label for="">go to Surveys</label>
     </ion-button>
+     -->
       <ion-button   (click)="goToTasksviews()"> <!-- Hacer el card clickeable -->
-        <label for="">go to Tasks</label>
+        <label for="">TASKS</label>
       </ion-button>
     </section>
 </ion-content>
